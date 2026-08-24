@@ -189,6 +189,47 @@
     thead th:nth-child(4), td:nth-child(4){display:none;}
   }
   ::selection{background:rgba(199,162,56,0.35);}
+
+  /* ---------- committee tags ---------- */
+  .committee-tags{display:flex; flex-wrap:wrap; gap:5px; margin-top:6px;}
+  .committee-tag{
+    font-family:'IBM Plex Mono'; font-size:10px; padding:2px 7px; border-radius:5px;
+    background:rgba(140,155,181,0.12); color:var(--muted); border:1px solid var(--line);
+    white-space:nowrap;
+  }
+
+  /* ---------- my portfolio ---------- */
+  .portfolio-box{
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+    padding:18px;
+  }
+  .portfolio-input-row{display:flex; gap:8px; margin-bottom:14px;}
+  .portfolio-input-row input{
+    flex:1; background:var(--panel-raised); border:1px solid var(--line); color:var(--text);
+    padding:10px 12px; border-radius:8px; font-family:'IBM Plex Mono'; font-size:13px; text-transform:uppercase;
+  }
+  .portfolio-tickers{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:6px;}
+  .portfolio-chip{
+    display:inline-flex; align-items:center; gap:6px; background:var(--panel-raised);
+    border:1px solid var(--line); border-radius:20px; padding:5px 8px 5px 12px;
+    font-family:'IBM Plex Mono'; font-size:12.5px;
+  }
+  .portfolio-chip button{
+    background:none; border:none; color:var(--muted); cursor:pointer; font-size:15px;
+    line-height:1; padding:2px 4px; border-radius:50%;
+  }
+  .portfolio-chip button:hover{color:var(--coral); background:rgba(232,96,77,0.12);}
+  .portfolio-empty{color:var(--muted); font-size:13px; padding:10px 0;}
+  .alert-card{
+    display:flex; align-items:flex-start; gap:12px; padding:14px 16px; border-radius:8px;
+    margin-top:10px; border:1px solid var(--line);
+  }
+  .alert-card.sell{background:rgba(232,96,77,0.08); border-color:rgba(232,96,77,0.3);}
+  .alert-card.buy{background:rgba(51,214,166,0.08); border-color:rgba(51,214,166,0.3);}
+  .alert-card .icon{font-size:18px; line-height:1.3;}
+  .alert-card .body{flex:1; font-size:13.5px; line-height:1.55;}
+  .alert-card .body b{font-family:'Space Grotesk';}
+  .alert-card .body .meta{color:var(--muted); font-size:12px; font-family:'IBM Plex Mono'; margin-top:3px;}
 </style>
 </head>
 <body>
@@ -218,6 +259,9 @@
       <option value="buy">Tylko kupno</option>
       <option value="sell">Tylko sprzedaż</option>
     </select>
+    <select id="committeeFilter">
+      <option value="">Wszystkie komisje</option>
+    </select>
     <select id="sortBy">
       <option value="date_desc">Data: najnowsze</option>
       <option value="date_asc">Data: najstarsze</option>
@@ -225,6 +269,19 @@
       <option value="perf_asc">Wynik: najgorszy</option>
       <option value="amount_desc">Kwota: malejąco</option>
     </select>
+  </div>
+
+  <div class="section-head">
+    <h2>Moje akcje</h2>
+    <span class="note">zapisywane lokalnie w Twojej przeglądarce</span>
+  </div>
+  <div class="portfolio-box">
+    <div class="portfolio-input-row">
+      <input type="text" id="portfolioInput" placeholder="Dodaj ticker, np. NVDA, AAPL…" maxlength="8">
+      <button class="btn" id="portfolioAddBtn">Dodaj</button>
+    </div>
+    <div class="portfolio-tickers" id="portfolioTickers"></div>
+    <div id="portfolioAlerts"></div>
   </div>
 
   <div class="section-head">
@@ -266,7 +323,9 @@
   </div>
 
   <div class="disclaimer" id="disclaimerBox">
-    <b>Skąd te dane:</b> transakcje pochodzą z jawnych formularzy Periodic Transaction Report (PTR), które senatorowie USA muszą składać na mocy STOCK Act z 2012 r. w ciągu 45 dni od transakcji, pobieranych bezpośrednio z <a href="https://efdsearch.senate.gov" target="_blank" style="color:var(--brass);">efdsearch.senate.gov</a>. Plik z danymi jest doaktualizowany codziennie przez automatyczny scraper (GitHub Actions) — zobacz znacznik czasu na górze strony. Partia przypisywana jest na podstawie oficjalnej, publicznej listy senatorów (projekt <i>unitedstates/congress-legislators</i>); jeśli senator nie występuje już na aktualnej liście (np. zakończył kadencję), partia pokaże się jako „?”.<br><br>
+    <b>Skąd te dane:</b> transakcje pochodzą z jawnych formularzy Periodic Transaction Report (PTR), które senatorowie USA muszą składać na mocy STOCK Act z 2012 r. w ciągu 45 dni od transakcji, pobieranych bezpośrednio z <a href="https://efdsearch.senate.gov" target="_blank" style="color:var(--brass);">efdsearch.senate.gov</a>. Plik z danymi jest doaktualizowany codziennie przez automatyczny scraper (GitHub Actions) — zobacz znacznik czasu na górze strony. Partia i komisje senackie przypisywane są na podstawie oficjalnej, publicznej listy senatorów (projekt <i>unitedstates/congress-legislators</i>); jeśli senator nie występuje już na aktualnej liście (np. zakończył kadencję), partia pokaże się jako „?”, a komisje jako puste.<br><br>
+    <b>Prezydent i wiceprezydent</b> nie są objęci tym rejestrem — ich oświadczenia majątkowe (OGE-278) idą osobną ścieżką prawną, poza systemem efdsearch.senate.gov, i nie są tu automatycznie śledzone.<br><br>
+    <b>Moje akcje:</b> tickery, które dodasz, zapisują się wyłącznie lokalnie w pamięci Twojej przeglądarki (localStorage) — nie są wysyłane nigdzie indziej, nie widzi ich nikt poza Tobą, i znikną, jeśli wyczyścisz dane przeglądania albo otworzysz stronę na innym urządzeniu.<br><br>
     <b>*Jak liczony jest „wynik”:</b> po kliknięciu „Oblicz ranking” aplikacja pobiera z Twojej przeglądarki notowania danej spółki z Stooq.com — cenę zamknięcia najbliższą dacie transakcji oraz najnowszą dostępną cenę. Dla <i>kupna</i> wynik = zmiana ceny od transakcji do dziś. Dla <i>sprzedaży</i> wynik = odwrócona zmiana ceny (dodatni wynik = sprzedali, zanim spadła). To uproszczenie: nie uwzględnia dokładnej ceny wykonania, dywidend, ani wielkości pozycji — realne kwoty podawane są w przedziałach (tak wymaga prawo). Pobieranie cen może się nie udać w niektórych przeglądarkach z powodu ograniczeń CORS — w takim wypadku wiersz pokaże „brak danych”.<br><br>
     Aplikacja nie stanowi porady inwestycyjnej. To narzędzie do transparentności obywatelskiej.
   </div>
@@ -287,6 +346,7 @@
     <div class="row"><span class="k">Kwota (przedział)</span><span id="mAmount" class="mono"></span></div>
     <div class="row"><span class="k">Data transakcji</span><span id="mDate" class="mono"></span></div>
     <div class="row"><span class="k">Zgłoszono</span><span id="mFiled" class="mono"></span></div>
+    <div class="row"><span class="k">Komisje senackie</span><span id="mCommittees" style="text-align:right; max-width:260px;"></span></div>
     <div class="row"><span class="k">Wynik*</span><span id="mPerf" class="mono"></span></div>
     <a id="mLink" class="srclink" href="#" target="_blank" rel="noopener">Zobacz oryginalny formularz PTR (efdsearch.senate.gov) →</a>
   </div>
@@ -295,7 +355,8 @@
 <script>
 // ---------- data loading ----------
 let DATA = [];
-let PARTY_BY_LAST = new Map(); // lastname(lower) -> [{first,last,party,state}]
+let PARTY_BY_LAST = new Map(); // lastname(lower) -> [{first,last,party,state,committees}]
+let ALL_COMMITTEES = new Set();
 
 async function fetchJSON(path){
   const res = await fetch(path, {cache:'no-store'});
@@ -308,21 +369,21 @@ function buildPartyIndex(list){
     const key = s.last.toLowerCase();
     if(!PARTY_BY_LAST.has(key)) PARTY_BY_LAST.set(key, []);
     PARTY_BY_LAST.get(key).push(s);
+    (s.committees||[]).forEach(c=>ALL_COMMITTEES.add(c));
   }
 }
 
-function lookupParty(senatorFullName){
-  // senator names in scraped data come as "First Last" or "First M Last, Jr" etc.
+function lookupSenatorInfo(senatorFullName){
   const cleaned = senatorFullName.replace(/,.*$/,'').trim();
   const parts = cleaned.split(/\s+/);
   const last = parts[parts.length-1].toLowerCase();
   const candidates = PARTY_BY_LAST.get(last);
-  if(!candidates || candidates.length===0) return '?';
-  if(candidates.length===1) return candidates[0].party;
-  // multiple senators share this last name — try matching first name too
+  if(!candidates || candidates.length===0) return {party:'?', committees:[]};
+  if(candidates.length===1) return {party:candidates[0].party, committees:candidates[0].committees||[]};
   const first = parts[0].toLowerCase();
   const match = candidates.find(c => c.first.toLowerCase().startsWith(first) || first.startsWith(c.first.toLowerCase()));
-  return match ? match.party : candidates[0].party;
+  const chosen = match || candidates[0];
+  return {party:chosen.party, committees:chosen.committees||[]};
 }
 
 async function loadData(){
@@ -419,10 +480,12 @@ function applyFilters(){
   const q = document.getElementById('search').value.trim().toLowerCase();
   const party = document.getElementById('partyFilter').value;
   const type = document.getElementById('typeFilter').value;
+  const committee = document.getElementById('committeeFilter').value;
   filtered = DATA.filter(d=>{
     if(party && d.party !== party) return false;
     if(type === 'buy' && !d.isBuy) return false;
     if(type === 'sell' && !d.isSell) return false;
+    if(committee && !(d.committees||[]).includes(committee)) return false;
     if(q){
       const hay = (d.senator+' '+d.ticker+' '+d.company).toLowerCase();
       if(!hay.includes(q)) return false;
@@ -485,8 +548,9 @@ function renderTable(){
 
   rows.forEach(d=>{
     const tr = document.createElement('tr');
+    const cttags = (d.committees||[]).slice(0,2).map(c=>`<span class="committee-tag">${c}</span>`).join('');
     tr.innerHTML = `
-      <td class="senator-cell"><div class="nm">${d.senator}</div>${partyChip(d.party)}</td>
+      <td class="senator-cell"><div class="nm">${d.senator}</div>${partyChip(d.party)}<div class="committee-tags">${cttags}</div></td>
       <td><span class="ticket mono">${d.ticker}</span></td>
       <td>${typePill(d)}</td>
       <td class="mono" style="color:var(--muted); font-size:12.5px;">${d.amount}</td>
@@ -513,6 +577,7 @@ function openModal(d){
   document.getElementById('mAmount').textContent = d.amount;
   document.getElementById('mDate').textContent = fmtDate(d.date);
   document.getElementById('mFiled').textContent = d.filed_date ? fmtDate(d.filed_date) : '—';
+  document.getElementById('mCommittees').textContent = (d.committees||[]).length ? d.committees.join(', ') : '—';
   document.getElementById('mLink').href = d.link;
   const perfEl = document.getElementById('mPerf');
   perfEl.textContent = 'licz…';
@@ -641,6 +706,7 @@ function wireEvents(){
   document.getElementById('search').addEventListener('input', applyFilters);
   document.getElementById('partyFilter').addEventListener('change', applyFilters);
   document.getElementById('typeFilter').addEventListener('change', applyFilters);
+  document.getElementById('committeeFilter').addEventListener('change', applyFilters);
   document.getElementById('calcBtn').addEventListener('click', calcLeaderboard);
   document.getElementById('modalClose').addEventListener('click', ()=>document.getElementById('overlay').classList.remove('show'));
   document.getElementById('overlay').addEventListener('click', (e)=>{ if(e.target.id==='overlay') e.currentTarget.classList.remove('show'); });
@@ -650,28 +716,129 @@ async function init(){
   const raw = await loadData();
   if(!raw){ return; }
 
-  DATA = raw.map((t,i)=>({
-    id:i,
-    date:t.date,
-    filed_date:t.filed_date,
-    senator:t.senator,
-    party: lookupParty(t.senator),
-    ticker:t.ticker,
-    company:t.company,
-    type:t.type,
-    owner:t.owner,
-    amount:t.amount,
-    link:t.link,
-    isBuy: /purchase/i.test(t.type||''),
-    isSell: /sale/i.test(t.type||''),
-  })).filter(d=>d.ticker && d.date);
+  DATA = raw.map((t,i)=>{
+    const info = lookupSenatorInfo(t.senator);
+    return {
+      id:i,
+      date:t.date,
+      filed_date:t.filed_date,
+      senator:t.senator,
+      party: info.party,
+      committees: info.committees,
+      ticker:t.ticker,
+      company:t.company,
+      type:t.type,
+      owner:t.owner,
+      amount:t.amount,
+      link:t.link,
+      isBuy: /purchase/i.test(t.type||''),
+      isSell: /sale/i.test(t.type||''),
+    };
+  }).filter(d=>d.ticker && d.date);
 
+  populateCommitteeFilter();
   document.getElementById('loadingScreen').style.display = 'none';
   document.getElementById('mainWrap').style.display = 'block';
 
   renderStats();
   wireEvents();
+  initPortfolio();
   applyFilters();
+}
+
+function populateCommitteeFilter(){
+  const sel = document.getElementById('committeeFilter');
+  [...ALL_COMMITTEES].sort().forEach(c=>{
+    const opt = document.createElement('option');
+    opt.value = c; opt.textContent = c;
+    sel.appendChild(opt);
+  });
+}
+
+// ---------- Moje akcje (localStorage, only in this browser) ----------
+const PORTFOLIO_KEY = 'congressTracker.myTickers';
+
+function loadPortfolio(){
+  try{
+    const raw = localStorage.getItem(PORTFOLIO_KEY);
+    return raw ? JSON.parse(raw) : [];
+  }catch(e){ return []; }
+}
+function savePortfolio(list){
+  try{ localStorage.setItem(PORTFOLIO_KEY, JSON.stringify(list)); }
+  catch(e){ console.error('Nie udało się zapisać w localStorage:', e); }
+}
+
+function initPortfolio(){
+  renderPortfolio();
+  document.getElementById('portfolioAddBtn').addEventListener('click', addPortfolioTicker);
+  document.getElementById('portfolioInput').addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter') addPortfolioTicker();
+  });
+}
+
+function addPortfolioTicker(){
+  const input = document.getElementById('portfolioInput');
+  const ticker = input.value.trim().toUpperCase();
+  if(!ticker) return;
+  const list = loadPortfolio();
+  if(!list.includes(ticker)) list.push(ticker);
+  savePortfolio(list);
+  input.value = '';
+  renderPortfolio();
+}
+function removePortfolioTicker(ticker){
+  const list = loadPortfolio().filter(t=>t!==ticker);
+  savePortfolio(list);
+  renderPortfolio();
+}
+
+function renderPortfolio(){
+  const list = loadPortfolio();
+  const wrap = document.getElementById('portfolioTickers');
+  if(list.length===0){
+    wrap.innerHTML = `<div class="portfolio-empty">Nie dodałeś jeszcze żadnych akcji. Dodaj ticker, żeby zobaczyć, czy któryś senator ostatnio go kupował lub sprzedawał.</div>`;
+  } else {
+    wrap.innerHTML = list.map(t=>`
+      <span class="portfolio-chip">${t}<button data-t="${t}" aria-label="Usuń">×</button></span>
+    `).join('');
+    wrap.querySelectorAll('button[data-t]').forEach(btn=>{
+      btn.addEventListener('click', ()=>removePortfolioTicker(btn.dataset.t));
+    });
+  }
+  renderPortfolioAlerts(list);
+}
+
+function renderPortfolioAlerts(list){
+  const box = document.getElementById('portfolioAlerts');
+  if(list.length===0){ box.innerHTML=''; return; }
+
+  const matches = DATA.filter(d => list.includes(d.ticker));
+  if(matches.length===0){
+    box.innerHTML = `<div class="portfolio-empty">Żaden senator w rejestrze nie handlował Twoimi tickerami — na razie brak dopasowań.</div>`;
+    return;
+  }
+  matches.sort((a,b)=>parseUSDate(b.date)-parseUSDate(a.date));
+
+  box.innerHTML = matches.slice(0,25).map(d=>{
+    if(d.isSell){
+      return `<div class="alert-card sell">
+        <div class="icon">⚠️</div>
+        <div class="body"><b>${d.senator}</b> sprzedał <b>${d.ticker}</b> — masz te akcje w swoim portfelu.
+          <div class="meta">${fmtDate(d.date)} · ${d.amount}</div>
+        </div>
+      </div>`;
+    }
+    if(d.isBuy){
+      return `<div class="alert-card buy">
+        <div class="icon">ℹ️</div>
+        <div class="body"><b>${d.senator}</b> kupił <b>${d.ticker}</b> — tak samo jak Ty.
+          <div class="meta">${fmtDate(d.date)} · ${d.amount}</div>
+        </div>
+      </div>`;
+    }
+    return '';
+  }).join('');
 }
 
 init();

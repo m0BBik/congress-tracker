@@ -4,699 +4,1307 @@
     "first": "Maria",
     "last": "Cantwell",
     "state": "WA",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Commerce, Science, and Transportation",
+      "Energy and Natural Resources",
+      "Finance",
+      "Indian Affairs",
+      "Small Business and Entrepreneurship"
+    ]
   },
   {
     "full_name": "Amy Klobuchar",
     "first": "Amy",
     "last": "Klobuchar",
     "state": "MN",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Agriculture, Nutrition, and Forestry",
+      "Commerce, Science, and Transportation",
+      "Rules and Administration",
+      "the Judiciary"
+    ]
   },
   {
     "full_name": "Bernard Sanders",
     "first": "Bernard",
     "last": "Sanders",
     "state": "VT",
-    "party": "I"
+    "party": "I",
+    "committees": [
+      "Environment and Public Works",
+      "Finance",
+      "Health, Education, Labor, and Pensions",
+      "Veterans' Affairs",
+      "the Budget"
+    ]
   },
   {
     "full_name": "Sheldon Whitehouse",
     "first": "Sheldon",
     "last": "Whitehouse",
     "state": "RI",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Environment and Public Works",
+      "Finance",
+      "United States Caucus on International Narcotics Control",
+      "the Budget",
+      "the Judiciary"
+    ]
   },
   {
     "full_name": "John Barrasso",
     "first": "John",
     "last": "Barrasso",
     "state": "WY",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Energy and Natural Resources",
+      "Finance",
+      "Foreign Relations"
+    ]
   },
   {
     "full_name": "Roger F. Wicker",
     "first": "Roger",
     "last": "Wicker",
     "state": "MS",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Armed Services",
+      "Commerce, Science, and Transportation",
+      "Environment and Public Works",
+      "Rules and Administration",
+      "Select Committee on Intelligence"
+    ]
   },
   {
     "full_name": "Susan M. Collins",
     "first": "Susan",
     "last": "Collins",
     "state": "ME",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Appropriations",
+      "Health, Education, Labor, and Pensions",
+      "Select Committee on Intelligence"
+    ]
   },
   {
     "full_name": "John Cornyn",
     "first": "John",
     "last": "Cornyn",
     "state": "TX",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Finance",
+      "Foreign Relations",
+      "Select Committee on Intelligence",
+      "United States Caucus on International Narcotics Control",
+      "the Budget",
+      "the Judiciary"
+    ]
   },
   {
     "full_name": "Richard J. Durbin",
     "first": "Richard",
     "last": "Durbin",
     "state": "IL",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Agriculture, Nutrition, and Forestry",
+      "Appropriations",
+      "the Judiciary"
+    ]
   },
   {
     "full_name": "Mitch McConnell",
     "first": "Mitch",
     "last": "McConnell",
     "state": "KY",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Agriculture, Nutrition, and Forestry",
+      "Appropriations",
+      "Rules and Administration"
+    ]
   },
   {
     "full_name": "Jeff Merkley",
     "first": "Jeff",
     "last": "Merkley",
     "state": "OR",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Appropriations",
+      "Environment and Public Works",
+      "Foreign Relations",
+      "Rules and Administration",
+      "the Budget"
+    ]
   },
   {
     "full_name": "Jack Reed",
     "first": "John",
     "last": "Reed",
     "state": "RI",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Appropriations",
+      "Armed Services",
+      "Banking, Housing, and Urban Affairs",
+      "Select Committee on Intelligence"
+    ]
   },
   {
     "full_name": "James E. Risch",
     "first": "James",
     "last": "Risch",
     "state": "ID",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Energy and Natural Resources",
+      "Foreign Relations",
+      "Select Committee on Ethics",
+      "Select Committee on Intelligence",
+      "Small Business and Entrepreneurship",
+      "United States Caucus on International Narcotics Control"
+    ]
   },
   {
     "full_name": "Jeanne Shaheen",
     "first": "Jeanne",
     "last": "Shaheen",
     "state": "NH",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Appropriations",
+      "Armed Services",
+      "Foreign Relations",
+      "Select Committee on Ethics",
+      "Small Business and Entrepreneurship"
+    ]
   },
   {
     "full_name": "Mark R. Warner",
     "first": "Mark",
     "last": "Warner",
     "state": "VA",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Banking, Housing, and Urban Affairs",
+      "Finance",
+      "Rules and Administration",
+      "Select Committee on Intelligence",
+      "the Budget"
+    ]
   },
   {
     "full_name": "Kirsten E. Gillibrand",
     "first": "Kirsten",
     "last": "Gillibrand",
     "state": "NY",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Appropriations",
+      "Armed Services",
+      "Select Committee on Intelligence",
+      "Special Committee on Aging"
+    ]
   },
   {
     "full_name": "Christopher A. Coons",
     "first": "Christopher",
     "last": "Coons",
     "state": "DE",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Appropriations",
+      "Foreign Relations",
+      "Select Committee on Ethics",
+      "Small Business and Entrepreneurship",
+      "the Judiciary"
+    ]
   },
   {
     "full_name": "Tammy Baldwin",
     "first": "Tammy",
     "last": "Baldwin",
     "state": "WI",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Appropriations",
+      "Commerce, Science, and Transportation",
+      "Health, Education, Labor, and Pensions"
+    ]
   },
   {
     "full_name": "Michael F. Bennet",
     "first": "Michael",
     "last": "Bennet",
     "state": "CO",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Agriculture, Nutrition, and Forestry",
+      "Finance",
+      "Rules and Administration",
+      "Select Committee on Intelligence"
+    ]
   },
   {
     "full_name": "Marsha Blackburn",
     "first": "Marsha",
     "last": "Blackburn",
     "state": "TN",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Commerce, Science, and Transportation",
+      "Finance",
+      "Veterans' Affairs",
+      "the Judiciary"
+    ]
   },
   {
     "full_name": "Richard Blumenthal",
     "first": "Richard",
     "last": "Blumenthal",
     "state": "CT",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Armed Services",
+      "Homeland Security and Governmental Affairs",
+      "United States Caucus on International Narcotics Control",
+      "Veterans' Affairs",
+      "the Judiciary"
+    ]
   },
   {
     "full_name": "John Boozman",
     "first": "John",
     "last": "Boozman",
     "state": "AR",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Agriculture, Nutrition, and Forestry",
+      "Appropriations",
+      "Environment and Public Works",
+      "Rules and Administration",
+      "Veterans' Affairs"
+    ]
   },
   {
     "full_name": "Shelley Moore Capito",
     "first": "Shelley",
     "last": "Capito",
     "state": "WV",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Appropriations",
+      "Commerce, Science, and Transportation",
+      "Environment and Public Works",
+      "Rules and Administration"
+    ]
   },
   {
     "full_name": "Bill Cassidy",
     "first": "Bill",
     "last": "Cassidy",
     "state": "LA",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Energy and Natural Resources",
+      "Finance",
+      "Health, Education, Labor, and Pensions",
+      "Veterans' Affairs"
+    ]
   },
   {
     "full_name": "Mike Crapo",
     "first": "Michael",
     "last": "Crapo",
     "state": "ID",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Banking, Housing, and Urban Affairs",
+      "Finance",
+      "the Budget"
+    ]
   },
   {
     "full_name": "Chuck Grassley",
     "first": "Charles",
     "last": "Grassley",
     "state": "IA",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Agriculture, Nutrition, and Forestry",
+      "Finance",
+      "United States Caucus on International Narcotics Control",
+      "the Budget",
+      "the Judiciary"
+    ]
   },
   {
     "full_name": "Martin Heinrich",
     "first": "Martin",
     "last": "Heinrich",
     "state": "NM",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Appropriations",
+      "Energy and Natural Resources",
+      "Select Committee on Intelligence"
+    ]
   },
   {
     "full_name": "Mazie K. Hirono",
     "first": "Mazie",
     "last": "Hirono",
     "state": "HI",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Armed Services",
+      "Energy and Natural Resources",
+      "Small Business and Entrepreneurship",
+      "Veterans' Affairs",
+      "the Judiciary"
+    ]
   },
   {
     "full_name": "John Hoeven",
     "first": "John",
     "last": "Hoeven",
     "state": "ND",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Agriculture, Nutrition, and Forestry",
+      "Appropriations",
+      "Energy and Natural Resources",
+      "Indian Affairs"
+    ]
   },
   {
     "full_name": "Ron Johnson",
     "first": "Ron",
     "last": "Johnson",
     "state": "WI",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Finance",
+      "Homeland Security and Governmental Affairs",
+      "Special Committee on Aging",
+      "the Budget"
+    ]
   },
   {
     "full_name": "James Lankford",
     "first": "James",
     "last": "Lankford",
     "state": "OK",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Finance",
+      "Homeland Security and Governmental Affairs",
+      "Select Committee on Ethics",
+      "Select Committee on Intelligence"
+    ]
   },
   {
     "full_name": "Mike Lee",
     "first": "Mike",
     "last": "Lee",
     "state": "UT",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Energy and Natural Resources",
+      "Foreign Relations",
+      "the Budget",
+      "the Judiciary"
+    ]
   },
   {
     "full_name": "Ben Ray Luján",
     "first": "Ben",
     "last": "Luján",
     "state": "NM",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Agriculture, Nutrition, and Forestry",
+      "Commerce, Science, and Transportation",
+      "Finance",
+      "Indian Affairs",
+      "United States Caucus on International Narcotics Control",
+      "the Budget"
+    ]
   },
   {
     "full_name": "Edward J. Markey",
     "first": "Edward",
     "last": "Markey",
     "state": "MA",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Commerce, Science, and Transportation",
+      "Environment and Public Works",
+      "Health, Education, Labor, and Pensions",
+      "Small Business and Entrepreneurship"
+    ]
   },
   {
     "full_name": "Jerry Moran",
     "first": "Jerry",
     "last": "Moran",
     "state": "KS",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Agriculture, Nutrition, and Forestry",
+      "Appropriations",
+      "Commerce, Science, and Transportation",
+      "Indian Affairs",
+      "Select Committee on Intelligence",
+      "Veterans' Affairs"
+    ]
   },
   {
     "full_name": "Lisa Murkowski",
     "first": "Lisa",
     "last": "Murkowski",
     "state": "AK",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Appropriations",
+      "Energy and Natural Resources",
+      "Health, Education, Labor, and Pensions",
+      "Indian Affairs"
+    ]
   },
   {
     "full_name": "Christopher Murphy",
     "first": "Christopher",
     "last": "Murphy",
     "state": "CT",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Appropriations",
+      "Foreign Relations",
+      "Health, Education, Labor, and Pensions"
+    ]
   },
   {
     "full_name": "Patty Murray",
     "first": "Patty",
     "last": "Murray",
     "state": "WA",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Appropriations",
+      "Health, Education, Labor, and Pensions",
+      "Veterans' Affairs",
+      "the Budget"
+    ]
   },
   {
     "full_name": "Rand Paul",
     "first": "Rand",
     "last": "Paul",
     "state": "KY",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Foreign Relations",
+      "Health, Education, Labor, and Pensions",
+      "Homeland Security and Governmental Affairs",
+      "Small Business and Entrepreneurship"
+    ]
   },
   {
     "full_name": "Gary C. Peters",
     "first": "Gary",
     "last": "Peters",
     "state": "MI",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Appropriations",
+      "Armed Services",
+      "Commerce, Science, and Transportation",
+      "Homeland Security and Governmental Affairs"
+    ]
   },
   {
     "full_name": "Adam B. Schiff",
     "first": "Adam",
     "last": "Schiff",
     "state": "CA",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Agriculture, Nutrition, and Forestry",
+      "Environment and Public Works",
+      "Small Business and Entrepreneurship",
+      "the Judiciary"
+    ]
   },
   {
     "full_name": "Charles E. Schumer",
     "first": "Charles",
     "last": "Schumer",
     "state": "NY",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Rules and Administration",
+      "Select Committee on Intelligence"
+    ]
   },
   {
     "full_name": "Tim Scott",
     "first": "Tim",
     "last": "Scott",
     "state": "SC",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Banking, Housing, and Urban Affairs",
+      "Finance",
+      "Health, Education, Labor, and Pensions",
+      "Small Business and Entrepreneurship"
+    ]
   },
   {
     "full_name": "John Thune",
     "first": "John",
     "last": "Thune",
     "state": "SD",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Agriculture, Nutrition, and Forestry",
+      "Commerce, Science, and Transportation",
+      "Finance",
+      "Select Committee on Intelligence"
+    ]
   },
   {
     "full_name": "Chris Van Hollen",
     "first": "Chris",
     "last": "Van Hollen",
     "state": "MD",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Appropriations",
+      "Banking, Housing, and Urban Affairs",
+      "Foreign Relations",
+      "the Budget"
+    ]
   },
   {
     "full_name": "Peter Welch",
     "first": "Peter",
     "last": "Welch",
     "state": "VT",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Agriculture, Nutrition, and Forestry",
+      "Finance",
+      "Rules and Administration",
+      "the Judiciary"
+    ]
   },
   {
     "full_name": "Ron Wyden",
     "first": "Ron",
     "last": "Wyden",
     "state": "OR",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Energy and Natural Resources",
+      "Finance",
+      "Select Committee on Intelligence",
+      "the Budget"
+    ]
   },
   {
     "full_name": "Todd Young",
     "first": "Todd",
     "last": "Young",
     "state": "IN",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Commerce, Science, and Transportation",
+      "Finance",
+      "Select Committee on Intelligence",
+      "Small Business and Entrepreneurship"
+    ]
   },
   {
     "full_name": "Brian Schatz",
     "first": "Brian",
     "last": "Schatz",
     "state": "HI",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Appropriations",
+      "Commerce, Science, and Transportation",
+      "Foreign Relations",
+      "Indian Affairs",
+      "Select Committee on Ethics"
+    ]
   },
   {
     "full_name": "Tom Cotton",
     "first": "Tom",
     "last": "Cotton",
     "state": "AR",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Armed Services",
+      "Energy and Natural Resources",
+      "Select Committee on Intelligence"
+    ]
   },
   {
     "full_name": "Tammy Duckworth",
     "first": "Tammy",
     "last": "Duckworth",
     "state": "IL",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Armed Services",
+      "Commerce, Science, and Transportation",
+      "Foreign Relations",
+      "Veterans' Affairs"
+    ]
   },
   {
     "full_name": "Elizabeth Warren",
     "first": "Elizabeth",
     "last": "Warren",
     "state": "MA",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Armed Services",
+      "Banking, Housing, and Urban Affairs",
+      "Finance",
+      "Special Committee on Aging"
+    ]
   },
   {
     "full_name": "Angus S. King, Jr.",
     "first": "Angus",
     "last": "King",
     "state": "ME",
-    "party": "I"
+    "party": "I",
+    "committees": [
+      "Armed Services",
+      "Energy and Natural Resources",
+      "Select Committee on Intelligence",
+      "Veterans' Affairs"
+    ]
   },
   {
     "full_name": "Steve Daines",
     "first": "Steve",
     "last": "Daines",
     "state": "MT",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Energy and Natural Resources",
+      "Finance",
+      "Foreign Relations",
+      "Indian Affairs"
+    ]
   },
   {
     "full_name": "Kevin Cramer",
     "first": "Kevin",
     "last": "Cramer",
     "state": "ND",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Armed Services",
+      "Banking, Housing, and Urban Affairs",
+      "Environment and Public Works",
+      "Veterans' Affairs"
+    ]
   },
   {
     "full_name": "Deb Fischer",
     "first": "Deb",
     "last": "Fischer",
     "state": "NE",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Agriculture, Nutrition, and Forestry",
+      "Appropriations",
+      "Armed Services",
+      "Commerce, Science, and Transportation",
+      "Rules and Administration",
+      "Select Committee on Ethics"
+    ]
   },
   {
     "full_name": "Ted Cruz",
     "first": "Ted",
     "last": "Cruz",
     "state": "TX",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Commerce, Science, and Transportation",
+      "Foreign Relations",
+      "Rules and Administration",
+      "the Judiciary"
+    ]
   },
   {
     "full_name": "Tim Kaine",
     "first": "Timothy",
     "last": "Kaine",
     "state": "VA",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Armed Services",
+      "Foreign Relations",
+      "Health, Education, Labor, and Pensions",
+      "the Budget"
+    ]
   },
   {
     "full_name": "Cory A. Booker",
     "first": "Cory",
     "last": "Booker",
     "state": "NJ",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Agriculture, Nutrition, and Forestry",
+      "Foreign Relations",
+      "Small Business and Entrepreneurship",
+      "the Judiciary"
+    ]
   },
   {
     "full_name": "Ruben Gallego",
     "first": "Ruben",
     "last": "Gallego",
     "state": "AZ",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Banking, Housing, and Urban Affairs",
+      "Energy and Natural Resources",
+      "Homeland Security and Governmental Affairs",
+      "Veterans' Affairs"
+    ]
   },
   {
     "full_name": "Dan Sullivan",
     "first": "Dan",
     "last": "Sullivan",
     "state": "AK",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Armed Services",
+      "Commerce, Science, and Transportation",
+      "Environment and Public Works",
+      "Veterans' Affairs"
+    ]
   },
   {
     "full_name": "Joni Ernst",
     "first": "Joni",
     "last": "Ernst",
     "state": "IA",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Agriculture, Nutrition, and Forestry",
+      "Armed Services",
+      "Homeland Security and Governmental Affairs",
+      "Small Business and Entrepreneurship"
+    ]
   },
   {
     "full_name": "Thom Tillis",
     "first": "Thom",
     "last": "Tillis",
     "state": "NC",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Banking, Housing, and Urban Affairs",
+      "Finance",
+      "Veterans' Affairs",
+      "the Judiciary"
+    ]
   },
   {
     "full_name": "Mike Rounds",
     "first": "Mike",
     "last": "Rounds",
     "state": "SD",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Appropriations",
+      "Armed Services",
+      "Banking, Housing, and Urban Affairs",
+      "Indian Affairs",
+      "Select Committee on Intelligence"
+    ]
   },
   {
     "full_name": "John Kennedy",
     "first": "John",
     "last": "Kennedy",
     "state": "LA",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Appropriations",
+      "Banking, Housing, and Urban Affairs",
+      "the Budget",
+      "the Judiciary"
+    ]
   },
   {
     "full_name": "Margaret Wood Hassan",
     "first": "Margaret",
     "last": "Hassan",
     "state": "NH",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Finance",
+      "Health, Education, Labor, and Pensions",
+      "Homeland Security and Governmental Affairs",
+      "Veterans' Affairs"
+    ]
   },
   {
     "full_name": "Catherine Cortez Masto",
     "first": "Catherine",
     "last": "Cortez Masto",
     "state": "NV",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Banking, Housing, and Urban Affairs",
+      "Energy and Natural Resources",
+      "Finance",
+      "Indian Affairs"
+    ]
   },
   {
     "full_name": "Lisa Blunt Rochester",
     "first": "Lisa",
     "last": "Blunt Rochester",
     "state": "DE",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Banking, Housing, and Urban Affairs",
+      "Commerce, Science, and Transportation",
+      "Environment and Public Works",
+      "Health, Education, Labor, and Pensions"
+    ]
   },
   {
     "full_name": "Jim Banks",
     "first": "Jim",
     "last": "Banks",
     "state": "IN",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Armed Services",
+      "Banking, Housing, and Urban Affairs",
+      "Health, Education, Labor, and Pensions",
+      "Veterans' Affairs"
+    ]
   },
   {
     "full_name": "Roger Marshall",
     "first": "Roger",
     "last": "Marshall",
     "state": "KS",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Agriculture, Nutrition, and Forestry",
+      "Finance",
+      "Health, Education, Labor, and Pensions",
+      "the Budget"
+    ]
   },
   {
     "full_name": "Ted Budd",
     "first": "Ted",
     "last": "Budd",
     "state": "NC",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Armed Services",
+      "Commerce, Science, and Transportation",
+      "Select Committee on Intelligence",
+      "Small Business and Entrepreneurship"
+    ]
   },
   {
     "full_name": "Jacky Rosen",
     "first": "Jacky",
     "last": "Rosen",
     "state": "NV",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Armed Services",
+      "Commerce, Science, and Transportation",
+      "Foreign Relations",
+      "Small Business and Entrepreneurship"
+    ]
   },
   {
     "full_name": "John R. Curtis",
     "first": "John",
     "last": "Curtis",
     "state": "UT",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Commerce, Science, and Transportation",
+      "Environment and Public Works",
+      "Foreign Relations",
+      "Small Business and Entrepreneurship"
+    ]
   },
   {
     "full_name": "Tina Smith",
     "first": "Tina",
     "last": "Smith",
     "state": "MN",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Agriculture, Nutrition, and Forestry",
+      "Banking, Housing, and Urban Affairs",
+      "Finance",
+      "Indian Affairs"
+    ]
   },
   {
     "full_name": "Cindy Hyde-Smith",
     "first": "Cindy",
     "last": "Hyde-Smith",
     "state": "MS",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Agriculture, Nutrition, and Forestry",
+      "Appropriations",
+      "Energy and Natural Resources",
+      "Rules and Administration"
+    ]
   },
   {
     "full_name": "Elissa Slotkin",
     "first": "Elissa",
     "last": "Slotkin",
     "state": "MI",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Agriculture, Nutrition, and Forestry",
+      "Armed Services",
+      "Homeland Security and Governmental Affairs",
+      "Veterans' Affairs"
+    ]
   },
   {
     "full_name": "Andy Kim",
     "first": "Andy",
     "last": "Kim",
     "state": "NJ",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Banking, Housing, and Urban Affairs",
+      "Commerce, Science, and Transportation",
+      "Health, Education, Labor, and Pensions",
+      "Homeland Security and Governmental Affairs",
+      "Special Committee on Aging"
+    ]
   },
   {
     "full_name": "Rick Scott",
     "first": "Rick",
     "last": "Scott",
     "state": "FL",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Armed Services",
+      "Foreign Relations",
+      "Homeland Security and Governmental Affairs",
+      "Special Committee on Aging",
+      "the Budget"
+    ]
   },
   {
     "full_name": "Josh Hawley",
     "first": "Joshua",
     "last": "Hawley",
     "state": "MO",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Health, Education, Labor, and Pensions",
+      "Homeland Security and Governmental Affairs",
+      "Small Business and Entrepreneurship",
+      "the Judiciary"
+    ]
   },
   {
     "full_name": "Mark Kelly",
     "first": "Mark",
     "last": "Kelly",
     "state": "AZ",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Armed Services",
+      "Environment and Public Works",
+      "Select Committee on Intelligence",
+      "Special Committee on Aging"
+    ]
   },
   {
     "full_name": "Cynthia M. Lummis",
     "first": "Cynthia",
     "last": "Lummis",
     "state": "WY",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Banking, Housing, and Urban Affairs",
+      "Commerce, Science, and Transportation",
+      "Environment and Public Works"
+    ]
   },
   {
     "full_name": "Tommy Tuberville",
     "first": "Tommy",
     "last": "Tuberville",
     "state": "AL",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Agriculture, Nutrition, and Forestry",
+      "Armed Services",
+      "Health, Education, Labor, and Pensions",
+      "Special Committee on Aging",
+      "Veterans' Affairs"
+    ]
   },
   {
     "full_name": "John W. Hickenlooper",
     "first": "John",
     "last": "Hickenlooper",
     "state": "CO",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Commerce, Science, and Transportation",
+      "Energy and Natural Resources",
+      "Health, Education, Labor, and Pensions",
+      "Small Business and Entrepreneurship"
+    ]
   },
   {
     "full_name": "Bill Hagerty",
     "first": "Bill",
     "last": "Hagerty",
     "state": "TN",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Appropriations",
+      "Banking, Housing, and Urban Affairs",
+      "Foreign Relations",
+      "Rules and Administration"
+    ]
   },
   {
     "full_name": "Alex Padilla",
     "first": "Alejandro",
     "last": "Padilla",
     "state": "CA",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Energy and Natural Resources",
+      "Environment and Public Works",
+      "Rules and Administration",
+      "the Budget",
+      "the Judiciary"
+    ]
   },
   {
     "full_name": "Jon Ossoff",
     "first": "Jon",
     "last": "Ossoff",
     "state": "GA",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Appropriations",
+      "Rules and Administration",
+      "Select Committee on Intelligence"
+    ]
   },
   {
     "full_name": "Raphael G. Warnock",
     "first": "Raphael",
     "last": "Warnock",
     "state": "GA",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Agriculture, Nutrition, and Forestry",
+      "Banking, Housing, and Urban Affairs",
+      "Finance",
+      "Special Committee on Aging"
+    ]
   },
   {
     "full_name": "Katie Boyd Britt",
     "first": "Katie",
     "last": "Britt",
     "state": "AL",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Appropriations",
+      "Banking, Housing, and Urban Affairs",
+      "Rules and Administration",
+      "the Judiciary"
+    ]
   },
   {
     "full_name": "Eric Schmitt",
     "first": "Eric",
     "last": "Schmitt",
     "state": "MO",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Armed Services",
+      "Commerce, Science, and Transportation",
+      "the Judiciary"
+    ]
   },
   {
     "full_name": "John Fetterman",
     "first": "John",
     "last": "Fetterman",
     "state": "PA",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Agriculture, Nutrition, and Forestry",
+      "Commerce, Science, and Transportation",
+      "Homeland Security and Governmental Affairs"
+    ]
   },
   {
     "full_name": "Pete Ricketts",
     "first": "Pete",
     "last": "Ricketts",
     "state": "NE",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Banking, Housing, and Urban Affairs",
+      "Environment and Public Works",
+      "Foreign Relations",
+      "the Budget"
+    ]
   },
   {
     "full_name": "Angela D. Alsobrooks",
     "first": "Angela",
     "last": "Alsobrooks",
     "state": "MD",
-    "party": "D"
+    "party": "D",
+    "committees": [
+      "Banking, Housing, and Urban Affairs",
+      "Environment and Public Works",
+      "Health, Education, Labor, and Pensions",
+      "Special Committee on Aging"
+    ]
   },
   {
     "full_name": "Tim Sheehy",
     "first": "Tim",
     "last": "Sheehy",
     "state": "MT",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Armed Services",
+      "Commerce, Science, and Transportation",
+      "Veterans' Affairs"
+    ]
   },
   {
     "full_name": "Bernie Moreno",
     "first": "Bernie",
     "last": "Moreno",
     "state": "OH",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Banking, Housing, and Urban Affairs",
+      "Commerce, Science, and Transportation",
+      "Homeland Security and Governmental Affairs",
+      "United States Caucus on International Narcotics Control",
+      "the Budget"
+    ]
   },
   {
     "full_name": "David McCormick",
     "first": "Dave",
     "last": "McCormick",
     "state": "PA",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Banking, Housing, and Urban Affairs",
+      "Energy and Natural Resources",
+      "Foreign Relations",
+      "Special Committee on Aging"
+    ]
   },
   {
     "full_name": "James C. Justice",
     "first": "Jim",
     "last": "Justice",
     "state": "WV",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Agriculture, Nutrition, and Forestry",
+      "Energy and Natural Resources",
+      "Small Business and Entrepreneurship",
+      "Special Committee on Aging"
+    ]
   },
   {
     "full_name": "Jon Husted",
     "first": "Jon",
     "last": "Husted",
     "state": "OH",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Appropriations",
+      "Environment and Public Works",
+      "Health, Education, Labor, and Pensions",
+      "Small Business and Entrepreneurship",
+      "Special Committee on Aging"
+    ]
   },
   {
     "full_name": "Ashley Moody",
     "first": "Ashley",
     "last": "Moody",
     "state": "FL",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Armed Services",
+      "Health, Education, Labor, and Pensions",
+      "Homeland Security and Governmental Affairs",
+      "Special Committee on Aging",
+      "the Judiciary"
+    ]
   },
   {
     "full_name": "Alan Armstrong",
     "first": "Alan",
     "last": "Armstrong",
     "state": "OK",
-    "party": "R"
+    "party": "R",
+    "committees": [
+      "Health, Education, Labor, and Pensions",
+      "Indian Affairs"
+    ]
   },
   {
     "full_name": "Darline Graham",
     "first": "Darline",
     "last": "Graham Nordone",
     "state": "SC",
-    "party": "R"
+    "party": "R",
+    "committees": []
   }
 ]
