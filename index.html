@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rejestr Transakcji Kongresu — jawne ujawnienia STOCK Act</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B1220;
+    --panel:#111B2E;
+    --panel-raised:#16233A;
+    --line:#243149;
+    --text:#E7ECF3;
+    --muted:#8C9BB5;
+    --mint:#33D6A6;
+    --coral:#E8604D;
+    --brass:#C7A238;
+    --dem:#4C86C9;
+    --rep:#C9564C;
+    --ind:#8B7FC7;
+    --radius:10px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 600px at 15% -10%, rgba(199,162,56,0.10), transparent 60%),
+      radial-gradient(900px 500px at 100% 0%, rgba(51,214,166,0.08), transparent 55%),
+      var(--ink);
+    color:var(--text);
+    font-family:'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  a{color:inherit;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  .display{font-family:'Space Grotesk', sans-serif;}
+
+  .wrap{max-width:1180px; margin:0 auto; padding:0 24px 80px;}
+
+  header.hero{
+    padding:56px 24px 40px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+  }
+  header.hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:repeating-linear-gradient(0deg, rgba(231,236,243,0.025) 0px, rgba(231,236,243,0.025) 1px, transparent 1px, transparent 3px);
+    pointer-events:none;
+  }
+  .hero-inner{max-width:1180px; margin:0 auto; position:relative;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--brass); border:1px solid rgba(199,162,56,0.35);
+    padding:6px 12px; border-radius:999px; background:rgba(199,162,56,0.06);
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--mint); box-shadow:0 0 8px var(--mint); animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.35;}}
+  h1.title{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:clamp(32px, 5vw, 52px);
+    line-height:1.05;
+    margin:20px 0 14px;
+    letter-spacing:-0.01em;
+  }
+  h1.title span{color:var(--brass);}
+  .sub{color:var(--muted); font-size:16px; max-width:640px; line-height:1.6; margin:0 0 10px;}
+  .freshness{font-family:'IBM Plex Mono'; font-size:12px; color:var(--muted); margin:0 0 22px;}
+  .freshness b{color:var(--mint);}
+  .freshness.stale b{color:var(--coral);}
+
+  .stat-row{display:flex; flex-wrap:wrap; gap:14px; margin-top:8px;}
+  .stat{
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+    padding:14px 18px; min-width:140px; flex:1;
+  }
+  .stat .num{font-family:'Space Grotesk', sans-serif; font-size:26px; font-weight:600;}
+  .stat .lbl{font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); margin-top:4px;}
+
+  .toolbar{
+    display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+    margin:32px 0 20px; padding:14px; background:var(--panel);
+    border:1px solid var(--line); border-radius:var(--radius);
+    position:sticky; top:12px; z-index:20; backdrop-filter:blur(6px);
+  }
+  .toolbar input[type=text]{
+    flex:1; min-width:180px; background:var(--panel-raised); border:1px solid var(--line);
+    color:var(--text); padding:10px 12px; border-radius:8px; font-family:'IBM Plex Mono', monospace; font-size:13px;
+  }
+  .toolbar select{
+    background:var(--panel-raised); border:1px solid var(--line); color:var(--text);
+    padding:10px 12px; border-radius:8px; font-family:'Inter'; font-size:13px;
+  }
+  .btn{
+    background:var(--brass); color:#1a1406; border:none; font-weight:600;
+    padding:10px 16px; border-radius:8px; cursor:pointer; font-size:13px;
+    font-family:'Inter'; transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px); box-shadow:0 6px 18px rgba(199,162,56,0.25);}
+  .btn.ghost{background:transparent; color:var(--text); border:1px solid var(--line);}
+  .btn:disabled{opacity:0.5; cursor:default; transform:none; box-shadow:none;}
+
+  .section-head{display:flex; align-items:baseline; justify-content:space-between; margin:44px 0 16px;}
+  .section-head h2{font-family:'Space Grotesk'; font-size:20px; margin:0;}
+  .section-head .note{color:var(--muted); font-size:12.5px; font-family:'IBM Plex Mono', monospace;}
+
+  .board{display:grid; grid-template-columns:repeat(auto-fill, minmax(230px,1fr)); gap:14px;}
+  .card{
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+    padding:18px; position:relative; overflow:hidden;
+  }
+  .seal{
+    position:absolute; top:14px; right:14px; width:44px; height:44px; border-radius:50%;
+    border:2px dashed rgba(199,162,56,0.55); display:flex; align-items:center; justify-content:center;
+    font-family:'Space Grotesk'; font-weight:700; font-size:15px; color:var(--brass);
+    transform:rotate(-8deg); background:rgba(199,162,56,0.05);
+  }
+  .card .name{font-family:'Space Grotesk'; font-weight:600; font-size:16px; padding-right:50px;}
+  .chip{display:inline-block; font-size:10.5px; font-family:'IBM Plex Mono'; padding:2px 7px; border-radius:5px; margin-top:6px; letter-spacing:0.03em;}
+  .chip.D{background:rgba(76,134,201,0.18); color:var(--dem);}
+  .chip.R{background:rgba(201,86,76,0.18); color:var(--rep);}
+  .chip.I{background:rgba(139,127,199,0.18); color:var(--ind);}
+  .chip.Q{background:rgba(140,155,181,0.18); color:var(--muted);}
+  .card .ret{font-family:'Space Grotesk'; font-size:28px; font-weight:700; margin-top:14px;}
+  .ret.pos{color:var(--mint);} .ret.neg{color:var(--coral);}
+  .card .meta{color:var(--muted); font-size:11.5px; margin-top:6px; font-family:'IBM Plex Mono';}
+
+  .board-empty{
+    grid-column:1/-1; text-align:center; padding:40px 20px; color:var(--muted);
+    border:1px dashed var(--line); border-radius:var(--radius); font-size:13.5px;
+  }
+
+  .table-wrap{border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;}
+  table{width:100%; border-collapse:collapse; font-size:13.5px;}
+  thead th{
+    text-align:left; padding:12px 14px; background:var(--panel-raised); color:var(--muted);
+    font-family:'IBM Plex Mono'; font-size:11px; text-transform:uppercase; letter-spacing:0.06em;
+    border-bottom:1px solid var(--line); cursor:pointer; user-select:none; white-space:nowrap;
+  }
+  thead th:hover{color:var(--text);}
+  tbody tr{border-bottom:1px solid var(--line); cursor:pointer; transition:background .12s ease;}
+  tbody tr:hover{background:rgba(255,255,255,0.02);}
+  tbody tr:last-child{border-bottom:none;}
+  td{padding:11px 14px; vertical-align:middle;}
+  .senator-cell .nm{font-weight:600; font-size:13.5px;}
+  .ticket{
+    display:inline-block; font-family:'IBM Plex Mono'; font-size:12px; padding:3px 9px;
+    border:1px dashed var(--line); border-radius:6px; color:var(--muted); white-space:nowrap;
+  }
+  .type-pill{font-size:11.5px; font-family:'IBM Plex Mono'; padding:3px 9px; border-radius:5px;}
+  .type-pill.buy{background:rgba(51,214,166,0.14); color:var(--mint);}
+  .type-pill.sell{background:rgba(232,96,77,0.14); color:var(--coral);}
+  .type-pill.other{background:rgba(140,155,181,0.14); color:var(--muted);}
+  .perf-cell{font-family:'IBM Plex Mono'; font-weight:600;}
+  .perf-cell.pos{color:var(--mint);} .perf-cell.neg{color:var(--coral);}
+  .perf-cell.pending{color:var(--muted); font-weight:400; font-style:italic;}
+
+  .pager{display:flex; justify-content:center; align-items:center; gap:14px; margin-top:18px; color:var(--muted); font-family:'IBM Plex Mono'; font-size:12.5px;}
+
+  .overlay{position:fixed; inset:0; background:rgba(4,7,14,0.7); backdrop-filter:blur(3px); display:none; align-items:center; justify-content:center; z-index:100; padding:20px;}
+  .overlay.show{display:flex;}
+  .modal{background:var(--panel); border:1px solid var(--line); border-radius:14px; max-width:460px; width:100%; padding:26px; position:relative;}
+  .modal h3{font-family:'Space Grotesk'; margin:6px 0 4px; font-size:19px;}
+  .modal .close{position:absolute; top:16px; right:18px; cursor:pointer; color:var(--muted); font-size:20px; background:none; border:none;}
+  .modal .row{display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid var(--line); font-size:13.5px;}
+  .modal .row:last-of-type{border-bottom:none;}
+  .modal .row .k{color:var(--muted);}
+  .modal .srclink{display:inline-block; margin-top:16px; font-size:12.5px; color:var(--brass); font-family:'IBM Plex Mono'; text-decoration:none; border-bottom:1px solid rgba(199,162,56,0.4);}
+
+  .disclaimer{
+    margin-top:56px; padding:20px 22px; border:1px solid var(--line); border-radius:var(--radius);
+    background:var(--panel); color:var(--muted); font-size:12.5px; line-height:1.7;
+  }
+  .disclaimer b{color:var(--text);}
+  .progress-bar{height:4px; background:var(--line); border-radius:2px; overflow:hidden; margin-top:10px; width:100%;}
+  .progress-bar .fill{height:100%; background:var(--mint); width:0%; transition:width .2s ease;}
+
+  .loading-screen{padding:120px 24px; text-align:center; color:var(--muted); font-family:'IBM Plex Mono'; font-size:13px;}
+
+  @media (max-width:640px){
+    .toolbar{position:static;}
+    thead th:nth-child(4), td:nth-child(4){display:none;}
+  }
+  ::selection{background:rgba(199,162,56,0.35);}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow"><span class="dot"></span> Dane jawne · STOCK Act · efdsearch.senate.gov</span>
+    <h1 class="title">Rejestr transakcji<br><span>Kongresu USA</span></h1>
+    <p class="sub">Realne, publicznie ujawnione transakcje giełdowe senatorów USA — kto kupował, co sprzedawał i (na żądanie) jak wypadło to na tle rynku.</p>
+    <p class="freshness" id="freshness">Wczytywanie danych…</p>
+    <div class="stat-row" id="statRow"></div>
+  </div>
+</header>
+
+<div class="wrap" id="mainWrap" style="display:none;">
+
+  <div class="toolbar">
+    <input type="text" id="search" placeholder="Szukaj: nazwisko senatora lub ticker (np. Wyden, NVDA)…">
+    <select id="partyFilter">
+      <option value="">Wszystkie partie</option>
+      <option value="D">Demokraci</option>
+      <option value="R">Republikanie</option>
+      <option value="I">Niezależni</option>
+    </select>
+    <select id="typeFilter">
+      <option value="">Kupno i sprzedaż</option>
+      <option value="buy">Tylko kupno</option>
+      <option value="sell">Tylko sprzedaż</option>
+    </select>
+    <select id="sortBy">
+      <option value="date_desc">Data: najnowsze</option>
+      <option value="date_asc">Data: najstarsze</option>
+      <option value="perf_desc">Wynik: najlepszy</option>
+      <option value="perf_asc">Wynik: najgorszy</option>
+      <option value="amount_desc">Kwota: malejąco</option>
+    </select>
+  </div>
+
+  <div class="section-head">
+    <h2>Ranking skuteczności</h2>
+    <span class="note" id="boardNote">kliknij, by policzyć realne zwroty z danych rynkowych</span>
+  </div>
+  <div id="board" class="board">
+    <div class="board-empty">
+      Ranking wymaga pobrania bieżących i historycznych cen akcji z zewnętrznego źródła (Stooq).<br><br>
+      <button class="btn" id="calcBtn">Oblicz ranking skuteczności →</button>
+      <div class="progress-bar" id="progWrap" style="display:none; max-width:360px; margin:14px auto 0;"><div class="fill" id="progFill"></div></div>
+      <div id="progLabel" style="margin-top:8px; font-family:'IBM Plex Mono'; font-size:11.5px;"></div>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <h2>Wszystkie transakcje</h2>
+    <span class="note" id="tableNote"></span>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th data-k="senator">Senator</th>
+          <th data-k="ticker">Spółka</th>
+          <th data-k="type">Typ</th>
+          <th data-k="amount">Kwota</th>
+          <th data-k="date">Data</th>
+          <th data-k="perf">Wynik*</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+  <div class="pager">
+    <button class="btn ghost" id="prevPage">← Poprzednia</button>
+    <span id="pageInfo"></span>
+    <button class="btn ghost" id="nextPage">Następna →</button>
+  </div>
+
+  <div class="disclaimer" id="disclaimerBox">
+    <b>Skąd te dane:</b> transakcje pochodzą z jawnych formularzy Periodic Transaction Report (PTR), które senatorowie USA muszą składać na mocy STOCK Act z 2012 r. w ciągu 45 dni od transakcji, pobieranych bezpośrednio z <a href="https://efdsearch.senate.gov" target="_blank" style="color:var(--brass);">efdsearch.senate.gov</a>. Plik z danymi jest doaktualizowany codziennie przez automatyczny scraper (GitHub Actions) — zobacz znacznik czasu na górze strony. Partia przypisywana jest na podstawie oficjalnej, publicznej listy senatorów (projekt <i>unitedstates/congress-legislators</i>); jeśli senator nie występuje już na aktualnej liście (np. zakończył kadencję), partia pokaże się jako „?”.<br><br>
+    <b>*Jak liczony jest „wynik”:</b> po kliknięciu „Oblicz ranking” aplikacja pobiera z Twojej przeglądarki notowania danej spółki z Stooq.com — cenę zamknięcia najbliższą dacie transakcji oraz najnowszą dostępną cenę. Dla <i>kupna</i> wynik = zmiana ceny od transakcji do dziś. Dla <i>sprzedaży</i> wynik = odwrócona zmiana ceny (dodatni wynik = sprzedali, zanim spadła). To uproszczenie: nie uwzględnia dokładnej ceny wykonania, dywidend, ani wielkości pozycji — realne kwoty podawane są w przedziałach (tak wymaga prawo). Pobieranie cen może się nie udać w niektórych przeglądarkach z powodu ograniczeń CORS — w takim wypadku wiersz pokaże „brak danych”.<br><br>
+    Aplikacja nie stanowi porady inwestycyjnej. To narzędzie do transparentności obywatelskiej.
+  </div>
+
+</div>
+
+<div class="loading-screen" id="loadingScreen">Ładowanie rejestru transakcji…</div>
+
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <button class="close" id="modalClose">×</button>
+    <span class="chip" id="mParty"></span>
+    <h3 id="mName"></h3>
+    <div class="row"><span class="k">Spółka</span><span id="mCompany" class="mono"></span></div>
+    <div class="row"><span class="k">Ticker</span><span id="mTicker" class="mono"></span></div>
+    <div class="row"><span class="k">Typ transakcji</span><span id="mType"></span></div>
+    <div class="row"><span class="k">Właściciel aktywa</span><span id="mOwner"></span></div>
+    <div class="row"><span class="k">Kwota (przedział)</span><span id="mAmount" class="mono"></span></div>
+    <div class="row"><span class="k">Data transakcji</span><span id="mDate" class="mono"></span></div>
+    <div class="row"><span class="k">Zgłoszono</span><span id="mFiled" class="mono"></span></div>
+    <div class="row"><span class="k">Wynik*</span><span id="mPerf" class="mono"></span></div>
+    <a id="mLink" class="srclink" href="#" target="_blank" rel="noopener">Zobacz oryginalny formularz PTR (efdsearch.senate.gov) →</a>
+  </div>
+</div>
+
+<script>
+// ---------- data loading ----------
+let DATA = [];
+let PARTY_BY_LAST = new Map(); // lastname(lower) -> [{first,last,party,state}]
+
+async function fetchJSON(path){
+  const res = await fetch(path, {cache:'no-store'});
+  if(!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+  return res.json();
+}
+
+function buildPartyIndex(list){
+  for(const s of list){
+    const key = s.last.toLowerCase();
+    if(!PARTY_BY_LAST.has(key)) PARTY_BY_LAST.set(key, []);
+    PARTY_BY_LAST.get(key).push(s);
+  }
+}
+
+function lookupParty(senatorFullName){
+  // senator names in scraped data come as "First Last" or "First M Last, Jr" etc.
+  const cleaned = senatorFullName.replace(/,.*$/,'').trim();
+  const parts = cleaned.split(/\s+/);
+  const last = parts[parts.length-1].toLowerCase();
+  const candidates = PARTY_BY_LAST.get(last);
+  if(!candidates || candidates.length===0) return '?';
+  if(candidates.length===1) return candidates[0].party;
+  // multiple senators share this last name — try matching first name too
+  const first = parts[0].toLowerCase();
+  const match = candidates.find(c => c.first.toLowerCase().startsWith(first) || first.startsWith(c.first.toLowerCase()));
+  return match ? match.party : candidates[0].party;
+}
+
+async function loadData(){
+  try{
+    const [txns, senators] = await Promise.all([
+      fetchJSON('./data/senate_transactions.json'),
+      fetchJSON('./data/senators_party.json'),
+    ]);
+    buildPartyIndex(senators);
+    return txns;
+  }catch(e){
+    console.error('Nie udało się wczytać danych:', e);
+    document.getElementById('loadingScreen').textContent =
+      'Nie udało się wczytać pliku z danymi (data/senate_transactions.json). Jeśli otwierasz ten plik bezpośrednio z dysku (file://), przeglądarki blokują lokalne fetch — uruchom to przez lokalny serwer (np. `python3 -m http.server`) albo hostuj na GitHub Pages.';
+    return null;
+  }
+}
+
+function parseUSDate(d){
+  const [m,day,y] = d.split('/').map(Number);
+  return new Date(y, m-1, day);
+}
+function fmtDate(d){
+  const dt = parseUSDate(d);
+  return dt.toLocaleDateString('pl-PL', {year:'numeric', month:'short', day:'numeric'});
+}
+function toStooqDate(dt){
+  return dt.getFullYear() + String(dt.getMonth()+1).padStart(2,'0') + String(dt.getDate()).padStart(2,'0');
+}
+function stooqSymbol(ticker){
+  return ticker.toLowerCase().replace(/\./g,'-') + '.us';
+}
+
+const priceCache = new Map();
+
+async function fetchCSV(url){
+  try{
+    const r = await fetch(url);
+    if(!r.ok) throw new Error('bad status');
+    const txt = await r.text();
+    if(!txt || txt.startsWith('<') || txt.trim()==='' ) throw new Error('empty');
+    return txt;
+  }catch(e){
+    const proxied = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url);
+    const r2 = await fetch(proxied);
+    if(!r2.ok) throw new Error('proxy failed');
+    const txt2 = await r2.text();
+    if(!txt2 || txt2.trim()==='') throw new Error('empty proxy');
+    return txt2;
+  }
+}
+
+async function getTickerPrices(ticker, earliestDate){
+  if(priceCache.has(ticker)) return priceCache.get(ticker);
+  try{
+    const d1 = toStooqDate(earliestDate);
+    const today = new Date();
+    const d2 = toStooqDate(today);
+    const sym = stooqSymbol(ticker);
+    const url = `https://stooq.com/q/d/l/?s=${sym}&d1=${d1}&d2=${d2}&i=d`;
+    const csv = await fetchCSV(url);
+    const lines = csv.trim().split('\n').filter(l=>l && !l.startsWith('Date'));
+    if(lines.length < 2) throw new Error('no rows');
+    const rows = lines.map(l=>{
+      const parts = l.split(',');
+      return {date:parts[0], close:parseFloat(parts[4])};
+    }).filter(r=>!isNaN(r.close));
+    if(rows.length < 2) throw new Error('insufficient rows');
+    const result = {first: rows[0], last: rows[rows.length-1]};
+    priceCache.set(ticker, result);
+    return result;
+  }catch(e){
+    priceCache.set(ticker, 'error');
+    return 'error';
+  }
+}
+
+function computePerf(row, prices){
+  if(!prices || prices==='error') return null;
+  const {first,last} = prices;
+  if(!first || !last || first.close<=0) return null;
+  let pct = ((last.close - first.close)/first.close)*100;
+  if(row.isSell) pct = -pct;
+  return pct;
+}
+
+const perfResults = new Map();
+let filtered = [];
+let page = 0;
+const PAGE_SIZE = 25;
+let sortMode = 'date_desc';
+
+function applyFilters(){
+  const q = document.getElementById('search').value.trim().toLowerCase();
+  const party = document.getElementById('partyFilter').value;
+  const type = document.getElementById('typeFilter').value;
+  filtered = DATA.filter(d=>{
+    if(party && d.party !== party) return false;
+    if(type === 'buy' && !d.isBuy) return false;
+    if(type === 'sell' && !d.isSell) return false;
+    if(q){
+      const hay = (d.senator+' '+d.ticker+' '+d.company).toLowerCase();
+      if(!hay.includes(q)) return false;
+    }
+    return true;
+  });
+  sortFiltered();
+  page = 0;
+  renderTable();
+}
+
+function sortFiltered(){
+  const parseAmount = (a)=>{
+    const m = a.match(/[\d,]+/g);
+    if(!m) return 0;
+    return parseInt(m[m.length-1].replace(/,/g,''),10) || 0;
+  };
+  filtered.sort((a,b)=>{
+    if(sortMode==='date_desc') return parseUSDate(b.date)-parseUSDate(a.date);
+    if(sortMode==='date_asc') return parseUSDate(a.date)-parseUSDate(b.date);
+    if(sortMode==='amount_desc') return parseAmount(b.amount)-parseAmount(a.amount);
+    if(sortMode==='perf_desc' || sortMode==='perf_asc'){
+      const pa = perfResults.get(a.id); const pb = perfResults.get(b.id);
+      const va = (typeof pa==='number')?pa:-9999;
+      const vb = (typeof pb==='number')?pb:-9999;
+      return sortMode==='perf_desc' ? vb-va : va-vb;
+    }
+    return 0;
+  });
+}
+
+function typePill(d){
+  if(d.isBuy) return `<span class="type-pill buy">KUPNO</span>`;
+  if(d.isSell) return `<span class="type-pill sell">SPRZEDAŻ</span>`;
+  return `<span class="type-pill other">${d.type||'?'}</span>`;
+}
+function partyChip(p){
+  const label = p==='D'?'DEM':p==='R'?'REP':p==='I'?'IND':'?';
+  return `<span class="chip ${p||'Q'}">${label}</span>`;
+}
+function paintPerfCell(cell, v){
+  if(typeof v !== 'number'){
+    cell.innerHTML = `<span class="perf-cell pending">brak danych</span>`;
+    return;
+  }
+  const cls = v>=0?'pos':'neg';
+  const sign = v>=0?'+':'';
+  cell.innerHTML = `<span class="perf-cell ${cls}">${sign}${v.toFixed(1)}%</span>`;
+}
+
+function renderTable(){
+  const tbody = document.getElementById('tbody');
+  tbody.innerHTML = '';
+  const start = page*PAGE_SIZE;
+  const rows = filtered.slice(start, start+PAGE_SIZE);
+  document.getElementById('tableNote').textContent = `${filtered.length} transakcji`;
+  document.getElementById('pageInfo').textContent = filtered.length ? `Strona ${page+1} z ${Math.max(1,Math.ceil(filtered.length/PAGE_SIZE))}` : 'Brak wyników';
+  document.getElementById('prevPage').disabled = page===0;
+  document.getElementById('nextPage').disabled = start+PAGE_SIZE >= filtered.length;
+
+  rows.forEach(d=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td class="senator-cell"><div class="nm">${d.senator}</div>${partyChip(d.party)}</td>
+      <td><span class="ticket mono">${d.ticker}</span></td>
+      <td>${typePill(d)}</td>
+      <td class="mono" style="color:var(--muted); font-size:12.5px;">${d.amount}</td>
+      <td class="mono" style="color:var(--muted); font-size:12.5px;">${fmtDate(d.date)}</td>
+      <td class="perf-td"><span class="perf-cell pending">—</span></td>
+    `;
+    tr.addEventListener('click', ()=>openModal(d));
+    tbody.appendChild(tr);
+    const perfCell = tr.querySelector('.perf-td');
+    if(perfResults.has(d.id)){
+      paintPerfCell(perfCell, perfResults.get(d.id));
+    }
+  });
+}
+
+function openModal(d){
+  document.getElementById('mParty').className = 'chip '+(d.party||'Q');
+  document.getElementById('mParty').textContent = d.party==='D'?'DEM':d.party==='R'?'REP':d.party==='I'?'IND':'?';
+  document.getElementById('mName').textContent = d.senator;
+  document.getElementById('mCompany').textContent = d.company || '—';
+  document.getElementById('mTicker').textContent = d.ticker;
+  document.getElementById('mType').innerHTML = typePill(d);
+  document.getElementById('mOwner').textContent = d.owner || '—';
+  document.getElementById('mAmount').textContent = d.amount;
+  document.getElementById('mDate').textContent = fmtDate(d.date);
+  document.getElementById('mFiled').textContent = d.filed_date ? fmtDate(d.filed_date) : '—';
+  document.getElementById('mLink').href = d.link;
+  const perfEl = document.getElementById('mPerf');
+  perfEl.textContent = 'licz…';
+  document.getElementById('overlay').classList.add('show');
+  getTickerPrices(d.ticker, parseUSDate(d.date)).then(prices=>{
+    const pct = computePerf(d, prices);
+    perfResults.set(d.id, pct===null?'error':pct);
+    if(typeof pct==='number'){
+      perfEl.textContent = (pct>=0?'+':'')+pct.toFixed(1)+'%';
+      perfEl.style.color = pct>=0? 'var(--mint)':'var(--coral)';
+    } else {
+      perfEl.textContent = 'brak danych (błąd pobierania cen)';
+      perfEl.style.color = 'var(--muted)';
+    }
+  });
+}
+
+function renderStats(){
+  const senators = new Set(DATA.map(d=>d.senator));
+  const tickers = new Set(DATA.map(d=>d.ticker));
+  const buys = DATA.filter(d=>d.isBuy).length;
+  const sells = DATA.filter(d=>d.isSell).length;
+  const dates = DATA.map(d=>parseUSDate(d.date));
+  const minD = new Date(Math.min(...dates));
+  const maxD = new Date(Math.max(...dates));
+  const fmt = (d)=>d.toLocaleDateString('pl-PL',{year:'numeric',month:'short'});
+  document.getElementById('statRow').innerHTML = `
+    <div class="stat"><div class="num">${DATA.length}</div><div class="lbl">Transakcji w rejestrze</div></div>
+    <div class="stat"><div class="num">${senators.size}</div><div class="lbl">Senatorów</div></div>
+    <div class="stat"><div class="num">${tickers.size}</div><div class="lbl">Unikalnych spółek</div></div>
+    <div class="stat"><div class="num">${buys}/${sells}</div><div class="lbl">Kupno / Sprzedaż</div></div>
+    <div class="stat"><div class="num" style="font-size:16px;">${fmt(minD)} – ${fmt(maxD)}</div><div class="lbl">Zakres dat</div></div>
+  `;
+
+  const freshEl = document.getElementById('freshness');
+  const today = new Date();
+  const daysSinceLatestFiling = Math.round((today - maxD) / (1000*60*60*24));
+  freshEl.innerHTML = `Najnowsze ujawnienie w zbiorze: <b>${fmt(maxD)}</b> · plik danych odświeżany codziennie przez GitHub Actions`;
+  if(daysSinceLatestFiling > 60){
+    freshEl.classList.add('stale');
+    freshEl.innerHTML += ` — <span style="color:var(--coral)">brak nowych ujawnień od ${daysSinceLatestFiling} dni; sprawdź, czy workflow scrapera działa</span>`;
+  }
+}
+
+async function calcLeaderboard(){
+  const btn = document.getElementById('calcBtn');
+  btn.disabled = true;
+  btn.textContent = 'Liczenie…';
+  document.getElementById('progWrap').style.display = 'block';
+
+  const bySenator = {};
+  DATA.forEach(d=>{ (bySenator[d.senator] = bySenator[d.senator]||[]).push(d); });
+  const activeSenators = Object.entries(bySenator).sort((a,b)=>b[1].length-a[1].length).slice(0,12);
+
+  const rowsToPrice = [];
+  activeSenators.forEach(([name, rows])=>{
+    rows.slice(0,15).forEach(r=>rowsToPrice.push(r));
+  });
+  const uniqueTickers = [...new Set(rowsToPrice.map(r=>r.ticker))];
+
+  let done = 0;
+  const total = uniqueTickers.length || 1;
+  const concurrency = 5;
+  let idx = 0;
+  async function worker(){
+    while(idx < uniqueTickers.length){
+      const ticker = uniqueTickers[idx++];
+      const earliest = rowsToPrice.filter(r=>r.ticker===ticker).map(r=>parseUSDate(r.date)).sort((a,b)=>a-b)[0];
+      await getTickerPrices(ticker, earliest);
+      done++;
+      const pct = Math.round((done/total)*100);
+      document.getElementById('progFill').style.width = pct+'%';
+      document.getElementById('progLabel').textContent = `Pobrano ceny dla ${done}/${total} spółek…`;
+    }
+  }
+  await Promise.all(Array.from({length:concurrency}, worker));
+
+  const results = activeSenators.map(([name, rows])=>{
+    const sample = rows.slice(0,15);
+    const perfs = sample.map(r=>{
+      const prices = priceCache.get(r.ticker);
+      return computePerf(r, prices);
+    }).filter(p=>typeof p==='number');
+    if(perfs.length===0) return null;
+    const avg = perfs.reduce((a,b)=>a+b,0)/perfs.length;
+    const wins = perfs.filter(p=>p>0).length;
+    return { name, party: rows[0].party, avg, winRate: (wins/perfs.length)*100, n: perfs.length, total: rows.length };
+  }).filter(Boolean);
+
+  results.sort((a,b)=>b.avg-a.avg);
+
+  const board = document.getElementById('board');
+  if(results.length===0){
+    board.innerHTML = `<div class="board-empty">Nie udało się pobrać danych cenowych z przeglądarki (prawdopodobnie ograniczenia CORS). Spróbuj ponownie później.</div>`;
+    return;
+  }
+
+  board.innerHTML = results.map(r=>`
+    <div class="card">
+      <div class="seal">${r.party==='D'?'D':r.party==='R'?'R':r.party==='I'?'I':'?'}</div>
+      <div class="name">${r.name}</div>
+      ${partyChip(r.party)}
+      <div class="ret ${r.avg>=0?'pos':'neg'}">${r.avg>=0?'+':''}${r.avg.toFixed(1)}%</div>
+      <div class="meta">śr. zwrot · ${r.n} wycenionych transakcji (z ${r.total})</div>
+      <div class="meta">trafność: ${r.winRate.toFixed(0)}%</div>
+    </div>
+  `).join('');
+  document.getElementById('boardNote').textContent = `obliczono dla ${results.length} najaktywniejszych senatorów`;
+  renderTable();
+}
+
+function wireEvents(){
+  document.getElementById('prevPage').addEventListener('click', ()=>{ if(page>0){page--; renderTable();} });
+  document.getElementById('nextPage').addEventListener('click', ()=>{ if((page+1)*PAGE_SIZE<filtered.length){page++; renderTable();} });
+  document.querySelectorAll('thead th').forEach(th=>{
+    th.addEventListener('click', ()=>{
+      const k = th.dataset.k;
+      if(k==='date') sortMode = sortMode==='date_desc'?'date_asc':'date_desc';
+      else if(k==='perf') sortMode = sortMode==='perf_desc'?'perf_asc':'perf_desc';
+      else if(k==='amount') sortMode = 'amount_desc';
+      document.getElementById('sortBy').value = sortMode;
+      sortFiltered(); page=0; renderTable();
+    });
+  });
+  document.getElementById('sortBy').addEventListener('change', (e)=>{ sortMode=e.target.value; sortFiltered(); page=0; renderTable(); });
+  document.getElementById('search').addEventListener('input', applyFilters);
+  document.getElementById('partyFilter').addEventListener('change', applyFilters);
+  document.getElementById('typeFilter').addEventListener('change', applyFilters);
+  document.getElementById('calcBtn').addEventListener('click', calcLeaderboard);
+  document.getElementById('modalClose').addEventListener('click', ()=>document.getElementById('overlay').classList.remove('show'));
+  document.getElementById('overlay').addEventListener('click', (e)=>{ if(e.target.id==='overlay') e.currentTarget.classList.remove('show'); });
+}
+
+async function init(){
+  const raw = await loadData();
+  if(!raw){ return; }
+
+  DATA = raw.map((t,i)=>({
+    id:i,
+    date:t.date,
+    filed_date:t.filed_date,
+    senator:t.senator,
+    party: lookupParty(t.senator),
+    ticker:t.ticker,
+    company:t.company,
+    type:t.type,
+    owner:t.owner,
+    amount:t.amount,
+    link:t.link,
+    isBuy: /purchase/i.test(t.type||''),
+    isSell: /sale/i.test(t.type||''),
+  })).filter(d=>d.ticker && d.date);
+
+  document.getElementById('loadingScreen').style.display = 'none';
+  document.getElementById('mainWrap').style.display = 'block';
+
+  renderStats();
+  wireEvents();
+  applyFilters();
+}
+
+init();
+</script>
+</body>
+</html>

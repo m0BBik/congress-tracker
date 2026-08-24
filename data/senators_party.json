@@ -1,0 +1,702 @@
+[
+  {
+    "full_name": "Maria Cantwell",
+    "first": "Maria",
+    "last": "Cantwell",
+    "state": "WA",
+    "party": "D"
+  },
+  {
+    "full_name": "Amy Klobuchar",
+    "first": "Amy",
+    "last": "Klobuchar",
+    "state": "MN",
+    "party": "D"
+  },
+  {
+    "full_name": "Bernard Sanders",
+    "first": "Bernard",
+    "last": "Sanders",
+    "state": "VT",
+    "party": "I"
+  },
+  {
+    "full_name": "Sheldon Whitehouse",
+    "first": "Sheldon",
+    "last": "Whitehouse",
+    "state": "RI",
+    "party": "D"
+  },
+  {
+    "full_name": "John Barrasso",
+    "first": "John",
+    "last": "Barrasso",
+    "state": "WY",
+    "party": "R"
+  },
+  {
+    "full_name": "Roger F. Wicker",
+    "first": "Roger",
+    "last": "Wicker",
+    "state": "MS",
+    "party": "R"
+  },
+  {
+    "full_name": "Susan M. Collins",
+    "first": "Susan",
+    "last": "Collins",
+    "state": "ME",
+    "party": "R"
+  },
+  {
+    "full_name": "John Cornyn",
+    "first": "John",
+    "last": "Cornyn",
+    "state": "TX",
+    "party": "R"
+  },
+  {
+    "full_name": "Richard J. Durbin",
+    "first": "Richard",
+    "last": "Durbin",
+    "state": "IL",
+    "party": "D"
+  },
+  {
+    "full_name": "Mitch McConnell",
+    "first": "Mitch",
+    "last": "McConnell",
+    "state": "KY",
+    "party": "R"
+  },
+  {
+    "full_name": "Jeff Merkley",
+    "first": "Jeff",
+    "last": "Merkley",
+    "state": "OR",
+    "party": "D"
+  },
+  {
+    "full_name": "Jack Reed",
+    "first": "John",
+    "last": "Reed",
+    "state": "RI",
+    "party": "D"
+  },
+  {
+    "full_name": "James E. Risch",
+    "first": "James",
+    "last": "Risch",
+    "state": "ID",
+    "party": "R"
+  },
+  {
+    "full_name": "Jeanne Shaheen",
+    "first": "Jeanne",
+    "last": "Shaheen",
+    "state": "NH",
+    "party": "D"
+  },
+  {
+    "full_name": "Mark R. Warner",
+    "first": "Mark",
+    "last": "Warner",
+    "state": "VA",
+    "party": "D"
+  },
+  {
+    "full_name": "Kirsten E. Gillibrand",
+    "first": "Kirsten",
+    "last": "Gillibrand",
+    "state": "NY",
+    "party": "D"
+  },
+  {
+    "full_name": "Christopher A. Coons",
+    "first": "Christopher",
+    "last": "Coons",
+    "state": "DE",
+    "party": "D"
+  },
+  {
+    "full_name": "Tammy Baldwin",
+    "first": "Tammy",
+    "last": "Baldwin",
+    "state": "WI",
+    "party": "D"
+  },
+  {
+    "full_name": "Michael F. Bennet",
+    "first": "Michael",
+    "last": "Bennet",
+    "state": "CO",
+    "party": "D"
+  },
+  {
+    "full_name": "Marsha Blackburn",
+    "first": "Marsha",
+    "last": "Blackburn",
+    "state": "TN",
+    "party": "R"
+  },
+  {
+    "full_name": "Richard Blumenthal",
+    "first": "Richard",
+    "last": "Blumenthal",
+    "state": "CT",
+    "party": "D"
+  },
+  {
+    "full_name": "John Boozman",
+    "first": "John",
+    "last": "Boozman",
+    "state": "AR",
+    "party": "R"
+  },
+  {
+    "full_name": "Shelley Moore Capito",
+    "first": "Shelley",
+    "last": "Capito",
+    "state": "WV",
+    "party": "R"
+  },
+  {
+    "full_name": "Bill Cassidy",
+    "first": "Bill",
+    "last": "Cassidy",
+    "state": "LA",
+    "party": "R"
+  },
+  {
+    "full_name": "Mike Crapo",
+    "first": "Michael",
+    "last": "Crapo",
+    "state": "ID",
+    "party": "R"
+  },
+  {
+    "full_name": "Chuck Grassley",
+    "first": "Charles",
+    "last": "Grassley",
+    "state": "IA",
+    "party": "R"
+  },
+  {
+    "full_name": "Martin Heinrich",
+    "first": "Martin",
+    "last": "Heinrich",
+    "state": "NM",
+    "party": "D"
+  },
+  {
+    "full_name": "Mazie K. Hirono",
+    "first": "Mazie",
+    "last": "Hirono",
+    "state": "HI",
+    "party": "D"
+  },
+  {
+    "full_name": "John Hoeven",
+    "first": "John",
+    "last": "Hoeven",
+    "state": "ND",
+    "party": "R"
+  },
+  {
+    "full_name": "Ron Johnson",
+    "first": "Ron",
+    "last": "Johnson",
+    "state": "WI",
+    "party": "R"
+  },
+  {
+    "full_name": "James Lankford",
+    "first": "James",
+    "last": "Lankford",
+    "state": "OK",
+    "party": "R"
+  },
+  {
+    "full_name": "Mike Lee",
+    "first": "Mike",
+    "last": "Lee",
+    "state": "UT",
+    "party": "R"
+  },
+  {
+    "full_name": "Ben Ray Luján",
+    "first": "Ben",
+    "last": "Luján",
+    "state": "NM",
+    "party": "D"
+  },
+  {
+    "full_name": "Edward J. Markey",
+    "first": "Edward",
+    "last": "Markey",
+    "state": "MA",
+    "party": "D"
+  },
+  {
+    "full_name": "Jerry Moran",
+    "first": "Jerry",
+    "last": "Moran",
+    "state": "KS",
+    "party": "R"
+  },
+  {
+    "full_name": "Lisa Murkowski",
+    "first": "Lisa",
+    "last": "Murkowski",
+    "state": "AK",
+    "party": "R"
+  },
+  {
+    "full_name": "Christopher Murphy",
+    "first": "Christopher",
+    "last": "Murphy",
+    "state": "CT",
+    "party": "D"
+  },
+  {
+    "full_name": "Patty Murray",
+    "first": "Patty",
+    "last": "Murray",
+    "state": "WA",
+    "party": "D"
+  },
+  {
+    "full_name": "Rand Paul",
+    "first": "Rand",
+    "last": "Paul",
+    "state": "KY",
+    "party": "R"
+  },
+  {
+    "full_name": "Gary C. Peters",
+    "first": "Gary",
+    "last": "Peters",
+    "state": "MI",
+    "party": "D"
+  },
+  {
+    "full_name": "Adam B. Schiff",
+    "first": "Adam",
+    "last": "Schiff",
+    "state": "CA",
+    "party": "D"
+  },
+  {
+    "full_name": "Charles E. Schumer",
+    "first": "Charles",
+    "last": "Schumer",
+    "state": "NY",
+    "party": "D"
+  },
+  {
+    "full_name": "Tim Scott",
+    "first": "Tim",
+    "last": "Scott",
+    "state": "SC",
+    "party": "R"
+  },
+  {
+    "full_name": "John Thune",
+    "first": "John",
+    "last": "Thune",
+    "state": "SD",
+    "party": "R"
+  },
+  {
+    "full_name": "Chris Van Hollen",
+    "first": "Chris",
+    "last": "Van Hollen",
+    "state": "MD",
+    "party": "D"
+  },
+  {
+    "full_name": "Peter Welch",
+    "first": "Peter",
+    "last": "Welch",
+    "state": "VT",
+    "party": "D"
+  },
+  {
+    "full_name": "Ron Wyden",
+    "first": "Ron",
+    "last": "Wyden",
+    "state": "OR",
+    "party": "D"
+  },
+  {
+    "full_name": "Todd Young",
+    "first": "Todd",
+    "last": "Young",
+    "state": "IN",
+    "party": "R"
+  },
+  {
+    "full_name": "Brian Schatz",
+    "first": "Brian",
+    "last": "Schatz",
+    "state": "HI",
+    "party": "D"
+  },
+  {
+    "full_name": "Tom Cotton",
+    "first": "Tom",
+    "last": "Cotton",
+    "state": "AR",
+    "party": "R"
+  },
+  {
+    "full_name": "Tammy Duckworth",
+    "first": "Tammy",
+    "last": "Duckworth",
+    "state": "IL",
+    "party": "D"
+  },
+  {
+    "full_name": "Elizabeth Warren",
+    "first": "Elizabeth",
+    "last": "Warren",
+    "state": "MA",
+    "party": "D"
+  },
+  {
+    "full_name": "Angus S. King, Jr.",
+    "first": "Angus",
+    "last": "King",
+    "state": "ME",
+    "party": "I"
+  },
+  {
+    "full_name": "Steve Daines",
+    "first": "Steve",
+    "last": "Daines",
+    "state": "MT",
+    "party": "R"
+  },
+  {
+    "full_name": "Kevin Cramer",
+    "first": "Kevin",
+    "last": "Cramer",
+    "state": "ND",
+    "party": "R"
+  },
+  {
+    "full_name": "Deb Fischer",
+    "first": "Deb",
+    "last": "Fischer",
+    "state": "NE",
+    "party": "R"
+  },
+  {
+    "full_name": "Ted Cruz",
+    "first": "Ted",
+    "last": "Cruz",
+    "state": "TX",
+    "party": "R"
+  },
+  {
+    "full_name": "Tim Kaine",
+    "first": "Timothy",
+    "last": "Kaine",
+    "state": "VA",
+    "party": "D"
+  },
+  {
+    "full_name": "Cory A. Booker",
+    "first": "Cory",
+    "last": "Booker",
+    "state": "NJ",
+    "party": "D"
+  },
+  {
+    "full_name": "Ruben Gallego",
+    "first": "Ruben",
+    "last": "Gallego",
+    "state": "AZ",
+    "party": "D"
+  },
+  {
+    "full_name": "Dan Sullivan",
+    "first": "Dan",
+    "last": "Sullivan",
+    "state": "AK",
+    "party": "R"
+  },
+  {
+    "full_name": "Joni Ernst",
+    "first": "Joni",
+    "last": "Ernst",
+    "state": "IA",
+    "party": "R"
+  },
+  {
+    "full_name": "Thom Tillis",
+    "first": "Thom",
+    "last": "Tillis",
+    "state": "NC",
+    "party": "R"
+  },
+  {
+    "full_name": "Mike Rounds",
+    "first": "Mike",
+    "last": "Rounds",
+    "state": "SD",
+    "party": "R"
+  },
+  {
+    "full_name": "John Kennedy",
+    "first": "John",
+    "last": "Kennedy",
+    "state": "LA",
+    "party": "R"
+  },
+  {
+    "full_name": "Margaret Wood Hassan",
+    "first": "Margaret",
+    "last": "Hassan",
+    "state": "NH",
+    "party": "D"
+  },
+  {
+    "full_name": "Catherine Cortez Masto",
+    "first": "Catherine",
+    "last": "Cortez Masto",
+    "state": "NV",
+    "party": "D"
+  },
+  {
+    "full_name": "Lisa Blunt Rochester",
+    "first": "Lisa",
+    "last": "Blunt Rochester",
+    "state": "DE",
+    "party": "D"
+  },
+  {
+    "full_name": "Jim Banks",
+    "first": "Jim",
+    "last": "Banks",
+    "state": "IN",
+    "party": "R"
+  },
+  {
+    "full_name": "Roger Marshall",
+    "first": "Roger",
+    "last": "Marshall",
+    "state": "KS",
+    "party": "R"
+  },
+  {
+    "full_name": "Ted Budd",
+    "first": "Ted",
+    "last": "Budd",
+    "state": "NC",
+    "party": "R"
+  },
+  {
+    "full_name": "Jacky Rosen",
+    "first": "Jacky",
+    "last": "Rosen",
+    "state": "NV",
+    "party": "D"
+  },
+  {
+    "full_name": "John R. Curtis",
+    "first": "John",
+    "last": "Curtis",
+    "state": "UT",
+    "party": "R"
+  },
+  {
+    "full_name": "Tina Smith",
+    "first": "Tina",
+    "last": "Smith",
+    "state": "MN",
+    "party": "D"
+  },
+  {
+    "full_name": "Cindy Hyde-Smith",
+    "first": "Cindy",
+    "last": "Hyde-Smith",
+    "state": "MS",
+    "party": "R"
+  },
+  {
+    "full_name": "Elissa Slotkin",
+    "first": "Elissa",
+    "last": "Slotkin",
+    "state": "MI",
+    "party": "D"
+  },
+  {
+    "full_name": "Andy Kim",
+    "first": "Andy",
+    "last": "Kim",
+    "state": "NJ",
+    "party": "D"
+  },
+  {
+    "full_name": "Rick Scott",
+    "first": "Rick",
+    "last": "Scott",
+    "state": "FL",
+    "party": "R"
+  },
+  {
+    "full_name": "Josh Hawley",
+    "first": "Joshua",
+    "last": "Hawley",
+    "state": "MO",
+    "party": "R"
+  },
+  {
+    "full_name": "Mark Kelly",
+    "first": "Mark",
+    "last": "Kelly",
+    "state": "AZ",
+    "party": "D"
+  },
+  {
+    "full_name": "Cynthia M. Lummis",
+    "first": "Cynthia",
+    "last": "Lummis",
+    "state": "WY",
+    "party": "R"
+  },
+  {
+    "full_name": "Tommy Tuberville",
+    "first": "Tommy",
+    "last": "Tuberville",
+    "state": "AL",
+    "party": "R"
+  },
+  {
+    "full_name": "John W. Hickenlooper",
+    "first": "John",
+    "last": "Hickenlooper",
+    "state": "CO",
+    "party": "D"
+  },
+  {
+    "full_name": "Bill Hagerty",
+    "first": "Bill",
+    "last": "Hagerty",
+    "state": "TN",
+    "party": "R"
+  },
+  {
+    "full_name": "Alex Padilla",
+    "first": "Alejandro",
+    "last": "Padilla",
+    "state": "CA",
+    "party": "D"
+  },
+  {
+    "full_name": "Jon Ossoff",
+    "first": "Jon",
+    "last": "Ossoff",
+    "state": "GA",
+    "party": "D"
+  },
+  {
+    "full_name": "Raphael G. Warnock",
+    "first": "Raphael",
+    "last": "Warnock",
+    "state": "GA",
+    "party": "D"
+  },
+  {
+    "full_name": "Katie Boyd Britt",
+    "first": "Katie",
+    "last": "Britt",
+    "state": "AL",
+    "party": "R"
+  },
+  {
+    "full_name": "Eric Schmitt",
+    "first": "Eric",
+    "last": "Schmitt",
+    "state": "MO",
+    "party": "R"
+  },
+  {
+    "full_name": "John Fetterman",
+    "first": "John",
+    "last": "Fetterman",
+    "state": "PA",
+    "party": "D"
+  },
+  {
+    "full_name": "Pete Ricketts",
+    "first": "Pete",
+    "last": "Ricketts",
+    "state": "NE",
+    "party": "R"
+  },
+  {
+    "full_name": "Angela D. Alsobrooks",
+    "first": "Angela",
+    "last": "Alsobrooks",
+    "state": "MD",
+    "party": "D"
+  },
+  {
+    "full_name": "Tim Sheehy",
+    "first": "Tim",
+    "last": "Sheehy",
+    "state": "MT",
+    "party": "R"
+  },
+  {
+    "full_name": "Bernie Moreno",
+    "first": "Bernie",
+    "last": "Moreno",
+    "state": "OH",
+    "party": "R"
+  },
+  {
+    "full_name": "David McCormick",
+    "first": "Dave",
+    "last": "McCormick",
+    "state": "PA",
+    "party": "R"
+  },
+  {
+    "full_name": "James C. Justice",
+    "first": "Jim",
+    "last": "Justice",
+    "state": "WV",
+    "party": "R"
+  },
+  {
+    "full_name": "Jon Husted",
+    "first": "Jon",
+    "last": "Husted",
+    "state": "OH",
+    "party": "R"
+  },
+  {
+    "full_name": "Ashley Moody",
+    "first": "Ashley",
+    "last": "Moody",
+    "state": "FL",
+    "party": "R"
+  },
+  {
+    "full_name": "Alan Armstrong",
+    "first": "Alan",
+    "last": "Armstrong",
+    "state": "OK",
+    "party": "R"
+  },
+  {
+    "full_name": "Darline Graham",
+    "first": "Darline",
+    "last": "Graham Nordone",
+    "state": "SC",
+    "party": "R"
+  }
+]
