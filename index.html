@@ -634,6 +634,7 @@ async function init(){
       owner:t.owner,
       amount:t.amount,
       link:t.link,
+      performance_pct: typeof t.performance_pct === 'number' ? t.performance_pct : null,
       isBuy: /purchase/i.test(t.type||''),
       isSell: /sale/i.test(t.type||''),
     };
