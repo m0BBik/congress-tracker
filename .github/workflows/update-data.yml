@@ -42,6 +42,9 @@ jobs:
           LOOKBACK_DAYS: ${{ github.event.inputs.lookback_days || '14' }}
         run: python scraper/scrape_senate.py
 
+      - name: Compute performance vs market (server-side, no CORS issues)
+        run: python scraper/compute_performance.py
+
       - name: Commit updated data (if any changes)
         run: |
           git config user.name "github-actions[bot]"

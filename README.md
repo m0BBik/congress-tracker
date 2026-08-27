@@ -9,7 +9,11 @@ senatorów USA (dane z formularzy PTR wymaganych przez STOCK Act).
 - `data/senators_party.json` — aktualna lista 100 senatorów z partią,
   z oficjalnego publicznego projektu `unitedstates/congress-legislators`
 - `scraper/scrape_senate.py` — scraper efdsearch.senate.gov (Playwright)
-- `scraper/update_party.py` — odświeża listę senatorów/partii
+- `scraper/update_party.py` — odświeża listę senatorów, partii i komisji senackich
+- `scraper/compute_performance.py` — liczy zwrot z każdej transakcji względem
+  cen rynkowych (Stooq) i zapisuje wynik do pliku danych — robi to **po
+  stronie serwera** w GitHub Actions, nie w przeglądarce użytkownika (Stooq
+  nie obsługuje CORS, więc pobieranie z przeglądarki zawodziło)
 - `.github/workflows/update-data.yml` — uruchamia oba skrypty **codziennie**
   za darmo na GitHub Actions i commituje nowe dane
 

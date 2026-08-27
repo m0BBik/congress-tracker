@@ -286,16 +286,9 @@
 
   <div class="section-head">
     <h2>Ranking skuteczności</h2>
-    <span class="note" id="boardNote">kliknij, by policzyć realne zwroty z danych rynkowych</span>
+    <span class="note" id="boardNote">na podstawie realnych cen rynkowych, liczone codziennie po stronie serwera</span>
   </div>
-  <div id="board" class="board">
-    <div class="board-empty">
-      Ranking wymaga pobrania bieżących i historycznych cen akcji z zewnętrznego źródła (Stooq).<br><br>
-      <button class="btn" id="calcBtn">Oblicz ranking skuteczności →</button>
-      <div class="progress-bar" id="progWrap" style="display:none; max-width:360px; margin:14px auto 0;"><div class="fill" id="progFill"></div></div>
-      <div id="progLabel" style="margin-top:8px; font-family:'IBM Plex Mono'; font-size:11.5px;"></div>
-    </div>
-  </div>
+  <div id="board" class="board"></div>
 
   <div class="section-head">
     <h2>Wszystkie transakcje</h2>
@@ -326,7 +319,7 @@
     <b>Skąd te dane:</b> transakcje pochodzą z jawnych formularzy Periodic Transaction Report (PTR), które senatorowie USA muszą składać na mocy STOCK Act z 2012 r. w ciągu 45 dni od transakcji, pobieranych bezpośrednio z <a href="https://efdsearch.senate.gov" target="_blank" style="color:var(--brass);">efdsearch.senate.gov</a>. Plik z danymi jest doaktualizowany codziennie przez automatyczny scraper (GitHub Actions) — zobacz znacznik czasu na górze strony. Partia i komisje senackie przypisywane są na podstawie oficjalnej, publicznej listy senatorów (projekt <i>unitedstates/congress-legislators</i>); jeśli senator nie występuje już na aktualnej liście (np. zakończył kadencję), partia pokaże się jako „?”, a komisje jako puste.<br><br>
     <b>Prezydent i wiceprezydent</b> nie są objęci tym rejestrem — ich oświadczenia majątkowe (OGE-278) idą osobną ścieżką prawną, poza systemem efdsearch.senate.gov, i nie są tu automatycznie śledzone.<br><br>
     <b>Moje akcje:</b> tickery, które dodasz, zapisują się wyłącznie lokalnie w pamięci Twojej przeglądarki (localStorage) — nie są wysyłane nigdzie indziej, nie widzi ich nikt poza Tobą, i znikną, jeśli wyczyścisz dane przeglądania albo otworzysz stronę na innym urządzeniu.<br><br>
-    <b>*Jak liczony jest „wynik”:</b> po kliknięciu „Oblicz ranking” aplikacja pobiera z Twojej przeglądarki notowania danej spółki z Stooq.com — cenę zamknięcia najbliższą dacie transakcji oraz najnowszą dostępną cenę. Dla <i>kupna</i> wynik = zmiana ceny od transakcji do dziś. Dla <i>sprzedaży</i> wynik = odwrócona zmiana ceny (dodatni wynik = sprzedali, zanim spadła). To uproszczenie: nie uwzględnia dokładnej ceny wykonania, dywidend, ani wielkości pozycji — realne kwoty podawane są w przedziałach (tak wymaga prawo). Pobieranie cen może się nie udać w niektórych przeglądarkach z powodu ograniczeń CORS — w takim wypadku wiersz pokaże „brak danych”.<br><br>
+    <b>*Jak liczony jest „wynik”:</b> raz dziennie, po stronie serwera (w tym samym zautomatyzowanym procesie GitHub Actions, który dociąga nowe transakcje), aplikacja pobiera z Stooq.com cenę zamknięcia najbliższą dacie transakcji oraz najnowszą dostępną cenę i zapisuje gotowy wynik razem z transakcją. Dla <i>kupna</i> wynik = zmiana ceny od transakcji do dziś. Dla <i>sprzedaży</i> wynik = odwrócona zmiana ceny (dodatni wynik = sprzedali, zanim spadła). To uproszczenie: nie uwzględnia dokładnej ceny wykonania, dywidend, ani wielkości pozycji — realne kwoty podawane są w przedziałach (tak wymaga prawo). Jeśli spółka nie jest dostępna w źródle cen, wiersz pokaże „brak danych”.<br><br>
     Aplikacja nie stanowi porady inwestycyjnej. To narzędzie do transparentności obywatelskiej.
   </div>
 
@@ -417,60 +410,12 @@ function stooqSymbol(ticker){
   return ticker.toLowerCase().replace(/\./g,'-') + '.us';
 }
 
-const priceCache = new Map();
+const priceCache = new Map(); // kept for potential future client-side use; unused now
 
-async function fetchCSV(url){
-  try{
-    const r = await fetch(url);
-    if(!r.ok) throw new Error('bad status');
-    const txt = await r.text();
-    if(!txt || txt.startsWith('<') || txt.trim()==='' ) throw new Error('empty');
-    return txt;
-  }catch(e){
-    const proxied = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url);
-    const r2 = await fetch(proxied);
-    if(!r2.ok) throw new Error('proxy failed');
-    const txt2 = await r2.text();
-    if(!txt2 || txt2.trim()==='') throw new Error('empty proxy');
-    return txt2;
-  }
+function computePerf(row){
+  return typeof row.performance_pct === 'number' ? row.performance_pct : null;
 }
 
-async function getTickerPrices(ticker, earliestDate){
-  if(priceCache.has(ticker)) return priceCache.get(ticker);
-  try{
-    const d1 = toStooqDate(earliestDate);
-    const today = new Date();
-    const d2 = toStooqDate(today);
-    const sym = stooqSymbol(ticker);
-    const url = `https://stooq.com/q/d/l/?s=${sym}&d1=${d1}&d2=${d2}&i=d`;
-    const csv = await fetchCSV(url);
-    const lines = csv.trim().split('\n').filter(l=>l && !l.startsWith('Date'));
-    if(lines.length < 2) throw new Error('no rows');
-    const rows = lines.map(l=>{
-      const parts = l.split(',');
-      return {date:parts[0], close:parseFloat(parts[4])};
-    }).filter(r=>!isNaN(r.close));
-    if(rows.length < 2) throw new Error('insufficient rows');
-    const result = {first: rows[0], last: rows[rows.length-1]};
-    priceCache.set(ticker, result);
-    return result;
-  }catch(e){
-    priceCache.set(ticker, 'error');
-    return 'error';
-  }
-}
-
-function computePerf(row, prices){
-  if(!prices || prices==='error') return null;
-  const {first,last} = prices;
-  if(!first || !last || first.close<=0) return null;
-  let pct = ((last.close - first.close)/first.close)*100;
-  if(row.isSell) pct = -pct;
-  return pct;
-}
-
-const perfResults = new Map();
 let filtered = [];
 let page = 0;
 const PAGE_SIZE = 25;
@@ -508,9 +453,8 @@ function sortFiltered(){
     if(sortMode==='date_asc') return parseUSDate(a.date)-parseUSDate(b.date);
     if(sortMode==='amount_desc') return parseAmount(b.amount)-parseAmount(a.amount);
     if(sortMode==='perf_desc' || sortMode==='perf_asc'){
-      const pa = perfResults.get(a.id); const pb = perfResults.get(b.id);
-      const va = (typeof pa==='number')?pa:-9999;
-      const vb = (typeof pb==='number')?pb:-9999;
+      const va = typeof a.performance_pct==='number' ? a.performance_pct : -9999;
+      const vb = typeof b.performance_pct==='number' ? b.performance_pct : -9999;
       return sortMode==='perf_desc' ? vb-va : va-vb;
     }
     return 0;
@@ -555,14 +499,11 @@ function renderTable(){
       <td>${typePill(d)}</td>
       <td class="mono" style="color:var(--muted); font-size:12.5px;">${d.amount}</td>
       <td class="mono" style="color:var(--muted); font-size:12.5px;">${fmtDate(d.date)}</td>
-      <td class="perf-td"><span class="perf-cell pending">—</span></td>
+      <td class="perf-td"></td>
     `;
     tr.addEventListener('click', ()=>openModal(d));
     tbody.appendChild(tr);
-    const perfCell = tr.querySelector('.perf-td');
-    if(perfResults.has(d.id)){
-      paintPerfCell(perfCell, perfResults.get(d.id));
-    }
+    paintPerfCell(tr.querySelector('.perf-td'), computePerf(d));
   });
 }
 
@@ -580,19 +521,15 @@ function openModal(d){
   document.getElementById('mCommittees').textContent = (d.committees||[]).length ? d.committees.join(', ') : '—';
   document.getElementById('mLink').href = d.link;
   const perfEl = document.getElementById('mPerf');
-  perfEl.textContent = 'licz…';
+  const pct = computePerf(d);
+  if(typeof pct==='number'){
+    perfEl.textContent = (pct>=0?'+':'')+pct.toFixed(1)+'%';
+    perfEl.style.color = pct>=0? 'var(--mint)':'var(--coral)';
+  } else {
+    perfEl.textContent = 'brak danych (spółka niedostępna w źródle cen)';
+    perfEl.style.color = 'var(--muted)';
+  }
   document.getElementById('overlay').classList.add('show');
-  getTickerPrices(d.ticker, parseUSDate(d.date)).then(prices=>{
-    const pct = computePerf(d, prices);
-    perfResults.set(d.id, pct===null?'error':pct);
-    if(typeof pct==='number'){
-      perfEl.textContent = (pct>=0?'+':'')+pct.toFixed(1)+'%';
-      perfEl.style.color = pct>=0? 'var(--mint)':'var(--coral)';
-    } else {
-      perfEl.textContent = 'brak danych (błąd pobierania cen)';
-      perfEl.style.color = 'var(--muted)';
-    }
-  });
 }
 
 function renderStats(){
@@ -622,45 +559,12 @@ function renderStats(){
   }
 }
 
-async function calcLeaderboard(){
-  const btn = document.getElementById('calcBtn');
-  btn.disabled = true;
-  btn.textContent = 'Liczenie…';
-  document.getElementById('progWrap').style.display = 'block';
-
+function renderLeaderboard(){
   const bySenator = {};
   DATA.forEach(d=>{ (bySenator[d.senator] = bySenator[d.senator]||[]).push(d); });
-  const activeSenators = Object.entries(bySenator).sort((a,b)=>b[1].length-a[1].length).slice(0,12);
 
-  const rowsToPrice = [];
-  activeSenators.forEach(([name, rows])=>{
-    rows.slice(0,15).forEach(r=>rowsToPrice.push(r));
-  });
-  const uniqueTickers = [...new Set(rowsToPrice.map(r=>r.ticker))];
-
-  let done = 0;
-  const total = uniqueTickers.length || 1;
-  const concurrency = 5;
-  let idx = 0;
-  async function worker(){
-    while(idx < uniqueTickers.length){
-      const ticker = uniqueTickers[idx++];
-      const earliest = rowsToPrice.filter(r=>r.ticker===ticker).map(r=>parseUSDate(r.date)).sort((a,b)=>a-b)[0];
-      await getTickerPrices(ticker, earliest);
-      done++;
-      const pct = Math.round((done/total)*100);
-      document.getElementById('progFill').style.width = pct+'%';
-      document.getElementById('progLabel').textContent = `Pobrano ceny dla ${done}/${total} spółek…`;
-    }
-  }
-  await Promise.all(Array.from({length:concurrency}, worker));
-
-  const results = activeSenators.map(([name, rows])=>{
-    const sample = rows.slice(0,15);
-    const perfs = sample.map(r=>{
-      const prices = priceCache.get(r.ticker);
-      return computePerf(r, prices);
-    }).filter(p=>typeof p==='number');
+  const results = Object.entries(bySenator).map(([name, rows])=>{
+    const perfs = rows.map(computePerf).filter(p=>typeof p==='number');
     if(perfs.length===0) return null;
     const avg = perfs.reduce((a,b)=>a+b,0)/perfs.length;
     const wins = perfs.filter(p=>p>0).length;
@@ -668,14 +572,15 @@ async function calcLeaderboard(){
   }).filter(Boolean);
 
   results.sort((a,b)=>b.avg-a.avg);
+  const top = results.slice(0,12);
 
   const board = document.getElementById('board');
-  if(results.length===0){
-    board.innerHTML = `<div class="board-empty">Nie udało się pobrać danych cenowych z przeglądarki (prawdopodobnie ograniczenia CORS). Spróbuj ponownie później.</div>`;
+  if(top.length===0){
+    board.innerHTML = `<div class="board-empty">Brak jeszcze wycenionych transakcji — wróć po kolejnej codziennej aktualizacji.</div>`;
     return;
   }
 
-  board.innerHTML = results.map(r=>`
+  board.innerHTML = top.map(r=>`
     <div class="card">
       <div class="seal">${r.party==='D'?'D':r.party==='R'?'R':r.party==='I'?'I':'?'}</div>
       <div class="name">${r.name}</div>
@@ -685,8 +590,7 @@ async function calcLeaderboard(){
       <div class="meta">trafność: ${r.winRate.toFixed(0)}%</div>
     </div>
   `).join('');
-  document.getElementById('boardNote').textContent = `obliczono dla ${results.length} najaktywniejszych senatorów`;
-  renderTable();
+  document.getElementById('boardNote').textContent = `${results.length} senatorów z wycenionymi transakcjami · pokazano 12 najlepszych`;
 }
 
 function wireEvents(){
@@ -707,7 +611,6 @@ function wireEvents(){
   document.getElementById('partyFilter').addEventListener('change', applyFilters);
   document.getElementById('typeFilter').addEventListener('change', applyFilters);
   document.getElementById('committeeFilter').addEventListener('change', applyFilters);
-  document.getElementById('calcBtn').addEventListener('click', calcLeaderboard);
   document.getElementById('modalClose').addEventListener('click', ()=>document.getElementById('overlay').classList.remove('show'));
   document.getElementById('overlay').addEventListener('click', (e)=>{ if(e.target.id==='overlay') e.currentTarget.classList.remove('show'); });
 }
@@ -741,6 +644,7 @@ async function init(){
   document.getElementById('mainWrap').style.display = 'block';
 
   renderStats();
+  renderLeaderboard();
   wireEvents();
   initPortfolio();
   applyFilters();
