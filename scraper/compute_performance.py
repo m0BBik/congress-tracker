@@ -38,6 +38,19 @@ import requests
 DATA_PATH = Path(__file__).resolve().parent.parent / "data" / "senate_transactions.json"
 REQUEST_DELAY_SECONDS = 0.3  # be polite to Stooq's free endpoint
 
+# Stooq (like many finance data sites) blocks requests that don't look like
+# they came from a real browser — GitHub Actions runners connect from cloud
+# IP ranges that get flagged more aggressively than a home connection, so a
+# convincing User-Agent (and a couple of the headers a real browser sends
+# alongside it) matters more here than it would running this locally.
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                  "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+    "Accept": "text/csv,text/plain,*/*",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Referer": "https://stooq.com/",
+}
+
 
 def to_stooq_date(dt):
     return dt.strftime("%Y%m%d")
@@ -58,9 +71,14 @@ def fetch_price_series(ticker, start_dt):
     d2 = to_stooq_date(datetime.now())
     url = f"https://stooq.com/q/d/l/?s={sym}&d1={d1}&d2={d2}&i=d"
     try:
-        resp = requests.get(url, timeout=15)
+        resp = requests.get(url, headers=HEADERS, timeout=15)
         resp.raise_for_status()
-        lines = [l for l in resp.text.strip().splitlines() if l and not l.startswith("Date")]
+        text = resp.text.strip()
+        if not text or text.startswith("<"):
+            # Stooq returns an HTML page (or an error string) instead of
+            # CSV when it doesn't like the request or the symbol is wrong.
+            return None
+        lines = [l for l in text.splitlines() if l and not l.startswith("Date")]
         if len(lines) < 2:
             return None
         rows = []
@@ -99,10 +117,25 @@ def main():
 
     print(f"Fetching prices for {len(by_ticker)} unique tickers...")
     price_cache = {}
+    failures_shown = 0
     for n, (ticker, rows) in enumerate(by_ticker.items(), 1):
         earliest = min(dt for _, dt in rows)
         result = fetch_price_series(ticker, earliest)
         price_cache[ticker] = result
+        if result is None and failures_shown < 3:
+            # Show a little diagnostic detail for the first few failures so
+            # a broken run is easy to debug from the Actions log instead of
+            # just seeing a flat "0 computed" at the end.
+            sym = stooq_symbol(ticker)
+            d1 = to_stooq_date(earliest)
+            d2 = to_stooq_date(datetime.now())
+            debug_url = f"https://stooq.com/q/d/l/?s={sym}&d1={d1}&d2={d2}&i=d"
+            try:
+                r = requests.get(debug_url, headers=HEADERS, timeout=15)
+                print(f"  [debug] {ticker} -> HTTP {r.status_code}, first 120 chars: {r.text[:120]!r}")
+            except requests.RequestException as e:
+                print(f"  [debug] {ticker} -> request failed: {e}")
+            failures_shown += 1
         if n % 25 == 0:
             print(f"  ...{n}/{len(by_ticker)} tickers done")
         time.sleep(REQUEST_DELAY_SECONDS)
