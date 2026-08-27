@@ -131,6 +131,17 @@
   .card .ret{font-family:'Space Grotesk'; font-size:28px; font-weight:700; margin-top:14px;}
   .ret.pos{color:var(--mint);} .ret.neg{color:var(--coral);}
   .card .meta{color:var(--muted); font-size:11.5px; margin-top:6px; font-family:'IBM Plex Mono';}
+  .sample-warning{
+    display:inline-block; margin-top:8px; font-size:10.5px; font-family:'IBM Plex Mono';
+    padding:2px 7px; border-radius:5px; background:rgba(199,162,56,0.14); color:var(--brass);
+  }
+
+  /* ---------- conflict-of-interest flag ---------- */
+  .conflict-flag{
+    display:inline-flex; align-items:center; gap:4px; font-size:10.5px; font-family:'IBM Plex Mono';
+    padding:2px 7px; border-radius:5px; background:rgba(232,96,77,0.16); color:var(--coral);
+    margin-top:5px; cursor:help;
+  }
 
   .board-empty{
     grid-column:1/-1; text-align:center; padding:40px 20px; color:var(--muted);
@@ -262,6 +273,10 @@
     <select id="committeeFilter">
       <option value="">Wszystkie komisje</option>
     </select>
+    <label style="display:flex; align-items:center; gap:6px; font-size:12.5px; color:var(--muted); white-space:nowrap; cursor:pointer;">
+      <input type="checkbox" id="conflictOnlyFilter" style="accent-color:var(--coral);">
+      ⚑ tylko możliwe powiązania
+    </label>
     <select id="sortBy">
       <option value="date_desc">Data: najnowsze</option>
       <option value="date_asc">Data: najstarsze</option>
@@ -287,6 +302,14 @@
   <div class="section-head">
     <h2>Ranking skuteczności</h2>
     <span class="note" id="boardNote">na podstawie realnych cen rynkowych, liczone codziennie po stronie serwera</span>
+  </div>
+  <div style="margin-bottom:14px;">
+    <select id="minTxFilter" style="background:var(--panel-raised); border:1px solid var(--line); color:var(--text); padding:8px 12px; border-radius:8px; font-family:'Inter'; font-size:13px;">
+      <option value="1">Pokaż wszystkich (nawet z 1 transakcją)</option>
+      <option value="3" selected>Min. 3 wycenione transakcje</option>
+      <option value="5">Min. 5 wycenionych transakcji</option>
+      <option value="10">Min. 10 wycenionych transakcji</option>
+    </select>
   </div>
   <div id="board" class="board"></div>
 
@@ -317,7 +340,7 @@
 
   <div class="disclaimer" id="disclaimerBox">
     <b>Skąd te dane:</b> transakcje pochodzą z jawnych formularzy Periodic Transaction Report (PTR), które senatorowie USA muszą składać na mocy STOCK Act z 2012 r. w ciągu 45 dni od transakcji, pobieranych bezpośrednio z <a href="https://efdsearch.senate.gov" target="_blank" style="color:var(--brass);">efdsearch.senate.gov</a>. Plik z danymi jest doaktualizowany codziennie przez automatyczny scraper (GitHub Actions) — zobacz znacznik czasu na górze strony. Partia i komisje senackie przypisywane są na podstawie oficjalnej, publicznej listy senatorów (projekt <i>unitedstates/congress-legislators</i>); jeśli senator nie występuje już na aktualnej liście (np. zakończył kadencję), partia pokaże się jako „?”, a komisje jako puste.<br><br>
-    <b>Prezydent i wiceprezydent</b> nie są objęci tym rejestrem — ich oświadczenia majątkowe (OGE-278) idą osobną ścieżką prawną, poza systemem efdsearch.senate.gov, i nie są tu automatycznie śledzone.<br><br>
+    <b>Prezydent i wiceprezydent</b> nie są objęci tym rejestrem — ich oświadczenia majątkowe (OGE-278) idą osobną ścieżką prawną, poza systemem efdsearch.senate.gov, i nie są tu automatycznie śledzone.<br><br>    <b>⚑ Flaga „możliwe powiązanie”:</b> to czysto mechaniczne dopasowanie słów kluczowych — sprawdzamy, czy nazwa spółki zawiera termin pasujący tematycznie do jednej z komisji senackich danego senatora (np. senator w komisji energetycznej + spółka ze słowem „oil”/„gas”/„energy” w nazwie). To NIE jest dowód na złamanie prawa, konflikt interesów w sensie prawnym, ani jakiekolwiek wykroczenie — wielu senatorów legalnie inwestuje w sektory, którymi się zajmują, a dopasowanie po samej nazwie spółki bywa niedokładne (fałszywie pozytywne i fałszywie negatywne się zdarzają). Traktuj to jako punkt wyjścia do własnego sprawdzenia, nie jako gotowy wniosek.<br><br>
     <b>Moje akcje:</b> tickery, które dodasz, zapisują się wyłącznie lokalnie w pamięci Twojej przeglądarki (localStorage) — nie są wysyłane nigdzie indziej, nie widzi ich nikt poza Tobą, i znikną, jeśli wyczyścisz dane przeglądania albo otworzysz stronę na innym urządzeniu.<br><br>
     <b>*Jak liczony jest „wynik”:</b> raz dziennie, po stronie serwera (w tym samym zautomatyzowanym procesie GitHub Actions, który dociąga nowe transakcje), aplikacja pobiera z Stooq.com cenę zamknięcia najbliższą dacie transakcji oraz najnowszą dostępną cenę i zapisuje gotowy wynik razem z transakcją. Dla <i>kupna</i> wynik = zmiana ceny od transakcji do dziś. Dla <i>sprzedaży</i> wynik = odwrócona zmiana ceny (dodatni wynik = sprzedali, zanim spadła). To uproszczenie: nie uwzględnia dokładnej ceny wykonania, dywidend, ani wielkości pozycji — realne kwoty podawane są w przedziałach (tak wymaga prawo). Jeśli spółka nie jest dostępna w źródle cen, wiersz pokaże „brak danych”.<br><br>
     Aplikacja nie stanowi porady inwestycyjnej. To narzędzie do transparentności obywatelskiej.
@@ -340,6 +363,7 @@
     <div class="row"><span class="k">Data transakcji</span><span id="mDate" class="mono"></span></div>
     <div class="row"><span class="k">Zgłoszono</span><span id="mFiled" class="mono"></span></div>
     <div class="row"><span class="k">Komisje senackie</span><span id="mCommittees" style="text-align:right; max-width:260px;"></span></div>
+    <div class="row" id="mConflictRow" style="display:none;"><span class="k">⚑ Potencjalne powiązanie</span><span id="mConflict" style="text-align:right; max-width:260px; color:var(--coral);"></span></div>
     <div class="row"><span class="k">Wynik*</span><span id="mPerf" class="mono"></span></div>
     <a id="mLink" class="srclink" href="#" target="_blank" rel="noopener">Zobacz oryginalny formularz PTR (efdsearch.senate.gov) →</a>
   </div>
@@ -416,6 +440,41 @@ function computePerf(row){
   return typeof row.performance_pct === 'number' ? row.performance_pct : null;
 }
 
+// ---------- potential conflict-of-interest flagging ----------
+// Heuristic only: matches a company name against loose topic keywords for
+// each Senate committee. A match means "this company's name suggests it
+// operates in a field this senator's committee oversees" — it is NOT proof
+// of wrongdoing, insider knowledge, or any rule violation. Committees left
+// out on purpose (Budget, Appropriations, Judiciary, Rules, etc.) are broad
+// enough that almost anything would "match", which would make the flag
+// meaningless.
+const COMMITTEE_KEYWORDS = {
+  'Agriculture, Nutrition, and Forestry': ['agricultur','farm','food','grain','dairy','meat','crop','seed','fertilizer'],
+  'Armed Services': ['defense','aerospace','military','weapons','lockheed','boeing','raytheon','northrop','general dynamics','missile'],
+  'Banking, Housing, and Urban Affairs': ['bank','mortgage','housing','credit union','financial group','savings'],
+  'Commerce, Science, and Transportation': ['airlines','airline','telecom','broadband','automotive','railroad','satellite','wireless'],
+  'Energy and Natural Resources': ['oil','gas ','petroleum','coal','solar','nuclear','pipeline','energy','electric power','utilities','utility'],
+  'Environment and Public Works': ['water works','waste management','construction','infrastructure'],
+  'Finance': ['pharmaceutical','insurance','tobacco'],
+  'Health, Education, Labor, and Pensions': ['pharma','biotech','health','hospital','medical','therapeutics','vaccine'],
+  'Homeland Security and Governmental Affairs': ['cybersecurity','security systems'],
+  "Veterans' Affairs": ['pharma','biotech','health','hospital','medical'],
+  'Select Committee on Intelligence': ['defense','cybersecurity','aerospace'],
+  'Special Committee on Aging': ['pharma','biotech','health','hospital','medical','insurance'],
+};
+
+function getConflictFlags(company, committees){
+  if(!company || !committees || committees.length===0) return [];
+  const lc = company.toLowerCase();
+  const flags = [];
+  committees.forEach(c=>{
+    const kws = COMMITTEE_KEYWORDS[c];
+    if(!kws) return;
+    if(kws.some(kw=>lc.includes(kw))) flags.push(c);
+  });
+  return flags;
+}
+
 let filtered = [];
 let page = 0;
 const PAGE_SIZE = 25;
@@ -426,11 +485,13 @@ function applyFilters(){
   const party = document.getElementById('partyFilter').value;
   const type = document.getElementById('typeFilter').value;
   const committee = document.getElementById('committeeFilter').value;
+  const conflictOnly = document.getElementById('conflictOnlyFilter').checked;
   filtered = DATA.filter(d=>{
     if(party && d.party !== party) return false;
     if(type === 'buy' && !d.isBuy) return false;
     if(type === 'sell' && !d.isSell) return false;
     if(committee && !(d.committees||[]).includes(committee)) return false;
+    if(conflictOnly && (!d.conflicts || d.conflicts.length===0)) return false;
     if(q){
       const hay = (d.senator+' '+d.ticker+' '+d.company).toLowerCase();
       if(!hay.includes(q)) return false;
@@ -493,8 +554,9 @@ function renderTable(){
   rows.forEach(d=>{
     const tr = document.createElement('tr');
     const cttags = (d.committees||[]).slice(0,2).map(c=>`<span class="committee-tag">${c}</span>`).join('');
+    const conflictTag = (d.conflicts&&d.conflicts.length) ? `<span class="conflict-flag" title="Spółka pasuje tematycznie do komisji: ${d.conflicts.join(', ')}">⚑ możliwe powiązanie</span>` : '';
     tr.innerHTML = `
-      <td class="senator-cell"><div class="nm">${d.senator}</div>${partyChip(d.party)}<div class="committee-tags">${cttags}</div></td>
+      <td class="senator-cell"><div class="nm">${d.senator}</div>${partyChip(d.party)}<div class="committee-tags">${cttags}</div>${conflictTag}</td>
       <td><span class="ticket mono">${d.ticker}</span></td>
       <td>${typePill(d)}</td>
       <td class="mono" style="color:var(--muted); font-size:12.5px;">${d.amount}</td>
@@ -519,6 +581,13 @@ function openModal(d){
   document.getElementById('mDate').textContent = fmtDate(d.date);
   document.getElementById('mFiled').textContent = d.filed_date ? fmtDate(d.filed_date) : '—';
   document.getElementById('mCommittees').textContent = (d.committees||[]).length ? d.committees.join(', ') : '—';
+  const conflictRow = document.getElementById('mConflictRow');
+  if(d.conflicts && d.conflicts.length){
+    conflictRow.style.display = 'flex';
+    document.getElementById('mConflict').textContent = d.conflicts.join(', ');
+  } else {
+    conflictRow.style.display = 'none';
+  }
   document.getElementById('mLink').href = d.link;
   const perfEl = document.getElementById('mPerf');
   const pct = computePerf(d);
@@ -560,6 +629,7 @@ function renderStats(){
 }
 
 function renderLeaderboard(){
+  const minTx = parseInt(document.getElementById('minTxFilter').value, 10) || 1;
   const bySenator = {};
   DATA.forEach(d=>{ (bySenator[d.senator] = bySenator[d.senator]||[]).push(d); });
 
@@ -569,18 +639,20 @@ function renderLeaderboard(){
     const avg = perfs.reduce((a,b)=>a+b,0)/perfs.length;
     const wins = perfs.filter(p=>p>0).length;
     return { name, party: rows[0].party, avg, winRate: (wins/perfs.length)*100, n: perfs.length, total: rows.length };
-  }).filter(Boolean);
+  }).filter(Boolean).filter(r=>r.n >= minTx);
 
   results.sort((a,b)=>b.avg-a.avg);
   const top = results.slice(0,12);
 
   const board = document.getElementById('board');
   if(top.length===0){
-    board.innerHTML = `<div class="board-empty">Brak jeszcze wycenionych transakcji — wróć po kolejnej codziennej aktualizacji.</div>`;
+    board.innerHTML = `<div class="board-empty">Brak senatorów spełniających ten próg liczby transakcji — spróbuj niższego progu.</div>`;
     return;
   }
 
-  board.innerHTML = top.map(r=>`
+  board.innerHTML = top.map(r=>{
+    const smallSample = r.n < 3 ? `<div class="sample-warning">⚠ mała próbka (${r.n})</div>` : '';
+    return `
     <div class="card">
       <div class="seal">${r.party==='D'?'D':r.party==='R'?'R':r.party==='I'?'I':'?'}</div>
       <div class="name">${r.name}</div>
@@ -588,9 +660,10 @@ function renderLeaderboard(){
       <div class="ret ${r.avg>=0?'pos':'neg'}">${r.avg>=0?'+':''}${r.avg.toFixed(1)}%</div>
       <div class="meta">śr. zwrot · ${r.n} wycenionych transakcji (z ${r.total})</div>
       <div class="meta">trafność: ${r.winRate.toFixed(0)}%</div>
+      ${smallSample}
     </div>
-  `).join('');
-  document.getElementById('boardNote').textContent = `${results.length} senatorów z wycenionymi transakcjami · pokazano 12 najlepszych`;
+  `;}).join('');
+  document.getElementById('boardNote').textContent = `${results.length} senatorów spełnia próg · pokazano 12 najlepszych`;
 }
 
 function wireEvents(){
@@ -611,6 +684,8 @@ function wireEvents(){
   document.getElementById('partyFilter').addEventListener('change', applyFilters);
   document.getElementById('typeFilter').addEventListener('change', applyFilters);
   document.getElementById('committeeFilter').addEventListener('change', applyFilters);
+  document.getElementById('conflictOnlyFilter').addEventListener('change', applyFilters);
+  document.getElementById('minTxFilter').addEventListener('change', renderLeaderboard);
   document.getElementById('modalClose').addEventListener('click', ()=>document.getElementById('overlay').classList.remove('show'));
   document.getElementById('overlay').addEventListener('click', (e)=>{ if(e.target.id==='overlay') e.currentTarget.classList.remove('show'); });
 }
@@ -621,6 +696,7 @@ async function init(){
 
   DATA = raw.map((t,i)=>{
     const info = lookupSenatorInfo(t.senator);
+    const conflicts = getConflictFlags(t.company, info.committees);
     return {
       id:i,
       date:t.date,
@@ -628,6 +704,7 @@ async function init(){
       senator:t.senator,
       party: info.party,
       committees: info.committees,
+      conflicts: conflicts,
       ticker:t.ticker,
       company:t.company,
       type:t.type,

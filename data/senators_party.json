@@ -11,7 +11,8 @@
       "Finance",
       "Indian Affairs",
       "Small Business and Entrepreneurship"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Amy Klobuchar",
@@ -24,7 +25,8 @@
       "Commerce, Science, and Transportation",
       "Rules and Administration",
       "the Judiciary"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Bernard Sanders",
@@ -38,7 +40,8 @@
       "Health, Education, Labor, and Pensions",
       "Veterans' Affairs",
       "the Budget"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Sheldon Whitehouse",
@@ -52,7 +55,8 @@
       "United States Caucus on International Narcotics Control",
       "the Budget",
       "the Judiciary"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "John Barrasso",
@@ -64,7 +68,8 @@
       "Energy and Natural Resources",
       "Finance",
       "Foreign Relations"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Roger F. Wicker",
@@ -78,7 +83,8 @@
       "Environment and Public Works",
       "Rules and Administration",
       "Select Committee on Intelligence"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Susan M. Collins",
@@ -90,7 +96,8 @@
       "Appropriations",
       "Health, Education, Labor, and Pensions",
       "Select Committee on Intelligence"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "John Cornyn",
@@ -105,7 +112,8 @@
       "United States Caucus on International Narcotics Control",
       "the Budget",
       "the Judiciary"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Richard J. Durbin",
@@ -117,7 +125,8 @@
       "Agriculture, Nutrition, and Forestry",
       "Appropriations",
       "the Judiciary"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Mitch McConnell",
@@ -129,7 +138,8 @@
       "Agriculture, Nutrition, and Forestry",
       "Appropriations",
       "Rules and Administration"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Jeff Merkley",
@@ -143,7 +153,8 @@
       "Foreign Relations",
       "Rules and Administration",
       "the Budget"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Jack Reed",
@@ -156,7 +167,8 @@
       "Armed Services",
       "Banking, Housing, and Urban Affairs",
       "Select Committee on Intelligence"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "James E. Risch",
@@ -171,7 +183,8 @@
       "Select Committee on Intelligence",
       "Small Business and Entrepreneurship",
       "United States Caucus on International Narcotics Control"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Jeanne Shaheen",
@@ -185,7 +198,8 @@
       "Foreign Relations",
       "Select Committee on Ethics",
       "Small Business and Entrepreneurship"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Mark R. Warner",
@@ -199,7 +213,8 @@
       "Rules and Administration",
       "Select Committee on Intelligence",
       "the Budget"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Kirsten E. Gillibrand",
@@ -212,7 +227,8 @@
       "Armed Services",
       "Select Committee on Intelligence",
       "Special Committee on Aging"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Christopher A. Coons",
@@ -226,7 +242,8 @@
       "Select Committee on Ethics",
       "Small Business and Entrepreneurship",
       "the Judiciary"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Tammy Baldwin",
@@ -238,7 +255,8 @@
       "Appropriations",
       "Commerce, Science, and Transportation",
       "Health, Education, Labor, and Pensions"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Michael F. Bennet",
@@ -251,7 +269,8 @@
       "Finance",
       "Rules and Administration",
       "Select Committee on Intelligence"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Marsha Blackburn",
@@ -264,7 +283,8 @@
       "Finance",
       "Veterans' Affairs",
       "the Judiciary"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Richard Blumenthal",
@@ -278,7 +298,8 @@
       "United States Caucus on International Narcotics Control",
       "Veterans' Affairs",
       "the Judiciary"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "John Boozman",
@@ -292,7 +313,8 @@
       "Environment and Public Works",
       "Rules and Administration",
       "Veterans' Affairs"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Shelley Moore Capito",
@@ -305,7 +327,8 @@
       "Commerce, Science, and Transportation",
       "Environment and Public Works",
       "Rules and Administration"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Bill Cassidy",
@@ -318,7 +341,8 @@
       "Finance",
       "Health, Education, Labor, and Pensions",
       "Veterans' Affairs"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Mike Crapo",
@@ -330,7 +354,8 @@
       "Banking, Housing, and Urban Affairs",
       "Finance",
       "the Budget"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Chuck Grassley",
@@ -344,7 +369,8 @@
       "United States Caucus on International Narcotics Control",
       "the Budget",
       "the Judiciary"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Martin Heinrich",
@@ -356,7 +382,8 @@
       "Appropriations",
       "Energy and Natural Resources",
       "Select Committee on Intelligence"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Mazie K. Hirono",
@@ -370,7 +397,8 @@
       "Small Business and Entrepreneurship",
       "Veterans' Affairs",
       "the Judiciary"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "John Hoeven",
@@ -383,7 +411,8 @@
       "Appropriations",
       "Energy and Natural Resources",
       "Indian Affairs"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Ron Johnson",
@@ -396,7 +425,8 @@
       "Homeland Security and Governmental Affairs",
       "Special Committee on Aging",
       "the Budget"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "James Lankford",
@@ -409,7 +439,8 @@
       "Homeland Security and Governmental Affairs",
       "Select Committee on Ethics",
       "Select Committee on Intelligence"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Mike Lee",
@@ -422,7 +453,8 @@
       "Foreign Relations",
       "the Budget",
       "the Judiciary"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Ben Ray Luján",
@@ -437,7 +469,8 @@
       "Indian Affairs",
       "United States Caucus on International Narcotics Control",
       "the Budget"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Edward J. Markey",
@@ -450,7 +483,8 @@
       "Environment and Public Works",
       "Health, Education, Labor, and Pensions",
       "Small Business and Entrepreneurship"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Jerry Moran",
@@ -465,7 +499,8 @@
       "Indian Affairs",
       "Select Committee on Intelligence",
       "Veterans' Affairs"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Lisa Murkowski",
@@ -478,7 +513,8 @@
       "Energy and Natural Resources",
       "Health, Education, Labor, and Pensions",
       "Indian Affairs"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Christopher Murphy",
@@ -490,7 +526,8 @@
       "Appropriations",
       "Foreign Relations",
       "Health, Education, Labor, and Pensions"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Patty Murray",
@@ -503,7 +540,8 @@
       "Health, Education, Labor, and Pensions",
       "Veterans' Affairs",
       "the Budget"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Rand Paul",
@@ -516,7 +554,8 @@
       "Health, Education, Labor, and Pensions",
       "Homeland Security and Governmental Affairs",
       "Small Business and Entrepreneurship"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Gary C. Peters",
@@ -529,7 +568,8 @@
       "Armed Services",
       "Commerce, Science, and Transportation",
       "Homeland Security and Governmental Affairs"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Adam B. Schiff",
@@ -542,7 +582,8 @@
       "Environment and Public Works",
       "Small Business and Entrepreneurship",
       "the Judiciary"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Charles E. Schumer",
@@ -553,7 +594,8 @@
     "committees": [
       "Rules and Administration",
       "Select Committee on Intelligence"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Tim Scott",
@@ -566,7 +608,8 @@
       "Finance",
       "Health, Education, Labor, and Pensions",
       "Small Business and Entrepreneurship"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "John Thune",
@@ -579,7 +622,8 @@
       "Commerce, Science, and Transportation",
       "Finance",
       "Select Committee on Intelligence"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Chris Van Hollen",
@@ -592,7 +636,8 @@
       "Banking, Housing, and Urban Affairs",
       "Foreign Relations",
       "the Budget"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Peter Welch",
@@ -605,7 +650,8 @@
       "Finance",
       "Rules and Administration",
       "the Judiciary"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Ron Wyden",
@@ -618,7 +664,8 @@
       "Finance",
       "Select Committee on Intelligence",
       "the Budget"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Todd Young",
@@ -631,7 +678,8 @@
       "Finance",
       "Select Committee on Intelligence",
       "Small Business and Entrepreneurship"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Brian Schatz",
@@ -645,7 +693,8 @@
       "Foreign Relations",
       "Indian Affairs",
       "Select Committee on Ethics"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Tom Cotton",
@@ -657,7 +706,8 @@
       "Armed Services",
       "Energy and Natural Resources",
       "Select Committee on Intelligence"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Tammy Duckworth",
@@ -670,7 +720,8 @@
       "Commerce, Science, and Transportation",
       "Foreign Relations",
       "Veterans' Affairs"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Elizabeth Warren",
@@ -683,7 +734,8 @@
       "Banking, Housing, and Urban Affairs",
       "Finance",
       "Special Committee on Aging"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Angus S. King, Jr.",
@@ -696,7 +748,8 @@
       "Energy and Natural Resources",
       "Select Committee on Intelligence",
       "Veterans' Affairs"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Steve Daines",
@@ -709,7 +762,8 @@
       "Finance",
       "Foreign Relations",
       "Indian Affairs"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Kevin Cramer",
@@ -722,7 +776,8 @@
       "Banking, Housing, and Urban Affairs",
       "Environment and Public Works",
       "Veterans' Affairs"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Deb Fischer",
@@ -737,7 +792,8 @@
       "Commerce, Science, and Transportation",
       "Rules and Administration",
       "Select Committee on Ethics"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Ted Cruz",
@@ -750,7 +806,8 @@
       "Foreign Relations",
       "Rules and Administration",
       "the Judiciary"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Tim Kaine",
@@ -763,7 +820,8 @@
       "Foreign Relations",
       "Health, Education, Labor, and Pensions",
       "the Budget"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Cory A. Booker",
@@ -776,7 +834,8 @@
       "Foreign Relations",
       "Small Business and Entrepreneurship",
       "the Judiciary"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Ruben Gallego",
@@ -789,7 +848,8 @@
       "Energy and Natural Resources",
       "Homeland Security and Governmental Affairs",
       "Veterans' Affairs"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Dan Sullivan",
@@ -802,7 +862,8 @@
       "Commerce, Science, and Transportation",
       "Environment and Public Works",
       "Veterans' Affairs"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Joni Ernst",
@@ -815,7 +876,8 @@
       "Armed Services",
       "Homeland Security and Governmental Affairs",
       "Small Business and Entrepreneurship"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Thom Tillis",
@@ -828,7 +890,8 @@
       "Finance",
       "Veterans' Affairs",
       "the Judiciary"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Mike Rounds",
@@ -842,7 +905,8 @@
       "Banking, Housing, and Urban Affairs",
       "Indian Affairs",
       "Select Committee on Intelligence"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "John Kennedy",
@@ -855,7 +919,8 @@
       "Banking, Housing, and Urban Affairs",
       "the Budget",
       "the Judiciary"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Margaret Wood Hassan",
@@ -868,7 +933,8 @@
       "Health, Education, Labor, and Pensions",
       "Homeland Security and Governmental Affairs",
       "Veterans' Affairs"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Catherine Cortez Masto",
@@ -881,7 +947,8 @@
       "Energy and Natural Resources",
       "Finance",
       "Indian Affairs"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Lisa Blunt Rochester",
@@ -894,7 +961,8 @@
       "Commerce, Science, and Transportation",
       "Environment and Public Works",
       "Health, Education, Labor, and Pensions"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Jim Banks",
@@ -907,7 +975,8 @@
       "Banking, Housing, and Urban Affairs",
       "Health, Education, Labor, and Pensions",
       "Veterans' Affairs"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Roger Marshall",
@@ -920,7 +989,8 @@
       "Finance",
       "Health, Education, Labor, and Pensions",
       "the Budget"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Ted Budd",
@@ -933,7 +1003,8 @@
       "Commerce, Science, and Transportation",
       "Select Committee on Intelligence",
       "Small Business and Entrepreneurship"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Jacky Rosen",
@@ -946,7 +1017,8 @@
       "Commerce, Science, and Transportation",
       "Foreign Relations",
       "Small Business and Entrepreneurship"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "John R. Curtis",
@@ -959,7 +1031,8 @@
       "Environment and Public Works",
       "Foreign Relations",
       "Small Business and Entrepreneurship"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Tina Smith",
@@ -972,7 +1045,8 @@
       "Banking, Housing, and Urban Affairs",
       "Finance",
       "Indian Affairs"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Cindy Hyde-Smith",
@@ -985,7 +1059,8 @@
       "Appropriations",
       "Energy and Natural Resources",
       "Rules and Administration"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Elissa Slotkin",
@@ -998,7 +1073,8 @@
       "Armed Services",
       "Homeland Security and Governmental Affairs",
       "Veterans' Affairs"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Andy Kim",
@@ -1012,7 +1088,8 @@
       "Health, Education, Labor, and Pensions",
       "Homeland Security and Governmental Affairs",
       "Special Committee on Aging"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Rick Scott",
@@ -1026,7 +1103,8 @@
       "Homeland Security and Governmental Affairs",
       "Special Committee on Aging",
       "the Budget"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Josh Hawley",
@@ -1039,7 +1117,8 @@
       "Homeland Security and Governmental Affairs",
       "Small Business and Entrepreneurship",
       "the Judiciary"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Mark Kelly",
@@ -1052,7 +1131,8 @@
       "Environment and Public Works",
       "Select Committee on Intelligence",
       "Special Committee on Aging"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Cynthia M. Lummis",
@@ -1064,7 +1144,8 @@
       "Banking, Housing, and Urban Affairs",
       "Commerce, Science, and Transportation",
       "Environment and Public Works"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Tommy Tuberville",
@@ -1078,7 +1159,8 @@
       "Health, Education, Labor, and Pensions",
       "Special Committee on Aging",
       "Veterans' Affairs"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "John W. Hickenlooper",
@@ -1091,7 +1173,8 @@
       "Energy and Natural Resources",
       "Health, Education, Labor, and Pensions",
       "Small Business and Entrepreneurship"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Bill Hagerty",
@@ -1104,7 +1187,8 @@
       "Banking, Housing, and Urban Affairs",
       "Foreign Relations",
       "Rules and Administration"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Alex Padilla",
@@ -1118,7 +1202,8 @@
       "Rules and Administration",
       "the Budget",
       "the Judiciary"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Jon Ossoff",
@@ -1130,7 +1215,8 @@
       "Appropriations",
       "Rules and Administration",
       "Select Committee on Intelligence"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Raphael G. Warnock",
@@ -1143,7 +1229,8 @@
       "Banking, Housing, and Urban Affairs",
       "Finance",
       "Special Committee on Aging"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Katie Boyd Britt",
@@ -1156,7 +1243,8 @@
       "Banking, Housing, and Urban Affairs",
       "Rules and Administration",
       "the Judiciary"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Eric Schmitt",
@@ -1168,7 +1256,8 @@
       "Armed Services",
       "Commerce, Science, and Transportation",
       "the Judiciary"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "John Fetterman",
@@ -1180,7 +1269,8 @@
       "Agriculture, Nutrition, and Forestry",
       "Commerce, Science, and Transportation",
       "Homeland Security and Governmental Affairs"
-    ]
+    ],
+    "end_year": "2029"
   },
   {
     "full_name": "Pete Ricketts",
@@ -1193,7 +1283,8 @@
       "Environment and Public Works",
       "Foreign Relations",
       "the Budget"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Angela D. Alsobrooks",
@@ -1206,7 +1297,8 @@
       "Environment and Public Works",
       "Health, Education, Labor, and Pensions",
       "Special Committee on Aging"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Tim Sheehy",
@@ -1218,7 +1310,8 @@
       "Armed Services",
       "Commerce, Science, and Transportation",
       "Veterans' Affairs"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Bernie Moreno",
@@ -1232,7 +1325,8 @@
       "Homeland Security and Governmental Affairs",
       "United States Caucus on International Narcotics Control",
       "the Budget"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "David McCormick",
@@ -1245,7 +1339,8 @@
       "Energy and Natural Resources",
       "Foreign Relations",
       "Special Committee on Aging"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "James C. Justice",
@@ -1258,7 +1353,8 @@
       "Energy and Natural Resources",
       "Small Business and Entrepreneurship",
       "Special Committee on Aging"
-    ]
+    ],
+    "end_year": "2031"
   },
   {
     "full_name": "Jon Husted",
@@ -1272,7 +1368,8 @@
       "Health, Education, Labor, and Pensions",
       "Small Business and Entrepreneurship",
       "Special Committee on Aging"
-    ]
+    ],
+    "end_year": "2026"
   },
   {
     "full_name": "Ashley Moody",
@@ -1286,7 +1383,8 @@
       "Homeland Security and Governmental Affairs",
       "Special Committee on Aging",
       "the Judiciary"
-    ]
+    ],
+    "end_year": "2026"
   },
   {
     "full_name": "Alan Armstrong",
@@ -1297,7 +1395,8 @@
     "committees": [
       "Health, Education, Labor, and Pensions",
       "Indian Affairs"
-    ]
+    ],
+    "end_year": "2027"
   },
   {
     "full_name": "Darline Graham",
@@ -1305,6 +1404,61 @@
     "last": "Graham Nordone",
     "state": "SC",
     "party": "R",
-    "committees": []
+    "committees": [],
+    "end_year": "2027"
+  },
+  {
+    "full_name": "Jonathan Roberts",
+    "first": "Jonathan",
+    "last": "Roberts",
+    "state": "PA",
+    "party": "R",
+    "committees": [],
+    "end_year": "1821"
+  },
+  {
+    "full_name": "Pat Roberts",
+    "first": "Pat",
+    "last": "Roberts",
+    "state": "KS",
+    "party": "R",
+    "committees": [],
+    "end_year": "2021"
+  },
+  {
+    "full_name": "Kelly Loeffler",
+    "first": "Kelly",
+    "last": "Loeffler",
+    "state": "GA",
+    "party": "R",
+    "committees": [],
+    "end_year": "2021"
+  },
+  {
+    "full_name": "Patrick J. Toomey",
+    "first": "Patrick",
+    "last": "Toomey",
+    "state": "PA",
+    "party": "R",
+    "committees": [],
+    "end_year": "2023"
+  },
+  {
+    "full_name": "James M. Inhofe",
+    "first": "James",
+    "last": "Inhofe",
+    "state": "OK",
+    "party": "R",
+    "committees": [],
+    "end_year": "2023"
+  },
+  {
+    "full_name": "Thomas R. Carper",
+    "first": "Thomas",
+    "last": "Carper",
+    "state": "DE",
+    "party": "D",
+    "committees": [],
+    "end_year": "2025"
   }
 ]

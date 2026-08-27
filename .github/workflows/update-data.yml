@@ -34,13 +34,13 @@ jobs:
           pip install playwright requests pyyaml
           playwright install --with-deps chromium
 
-      - name: Refresh senator/party roster
-        run: python scraper/update_party.py
-
       - name: Run scraper
         env:
           LOOKBACK_DAYS: ${{ github.event.inputs.lookback_days || '14' }}
         run: python scraper/scrape_senate.py
+
+      - name: Refresh senator/party/committee roster
+        run: python scraper/update_party.py
 
       - name: Compute performance vs market (server-side, no CORS issues)
         run: python scraper/compute_performance.py

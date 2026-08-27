@@ -55,3 +55,19 @@ wczytuje ten plik na żywo przy każdym otwarciu strony.
   później, ale nie jest tu zaimplementowane.
 - Dane są publiczne i darmowe z mocy prawa (STOCK Act) — to narzędzie
   transparentności obywatelskiej, nie porada inwestycyjna.
+
+## Co potrafi aplikacja
+
+- Tabela wszystkich transakcji z wyszukiwarką, filtrami (partia, kupno/
+  sprzedaż, komisja senacka) i paginacją
+- Ranking skuteczności — średni zwrot i trafność per senator, z progiem
+  minimalnej liczby transakcji (żeby jeden szczęśliwy strzał nie zdominował
+  rankingu) i plakietką „mała próbka” przy słabo udokumentowanych wynikach
+- Flaga ⚑ „możliwe powiązanie” — mechaniczne dopasowanie nazwy spółki do
+  tematyki komisji senackich danego senatora (np. komisja energetyczna +
+  spółka naftowa). To wskazówka do dalszego sprawdzenia, nie dowód niczego
+  — dokładny opis ograniczeń jest w samej aplikacji, w sekcji na dole strony
+- „Moje akcje” — osobisty watchlist zapisywany lokalnie w przeglądarce
+  (localStorage), z alertami gdy senator kupi/sprzeda ten sam ticker
+- Byli senatorowie (np. Pat Roberts, Patrick Toomey) też mają przypisaną
+  partię, nie tylko obecnie urzędujący
